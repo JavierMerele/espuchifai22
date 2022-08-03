@@ -16,4 +16,6 @@ CALL registrarCliente(
   'Estrellas28',
   58
 );
-CALL Reproducir (now(), 10, 58)
+CALL Reproducir (now(), 10, 58);
+CALL Reproducir (now(),11,58);
+CALL Reproducir (now(),15,58);

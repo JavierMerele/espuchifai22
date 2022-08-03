@@ -21,6 +21,8 @@ CREATE TABLE Espuchifai.Album(
     lanzamiento DATE NOT NULL,
     idBanda SMALLINT UNSIGNED NOT NULL,
     idAlbum MEDIUMINT UNSIGNED NOT NULL,
+    cantidad MEDIUMINT UNSIGNED NOT NULL,
+
     PRIMARY KEY (idAlbum),
     CONSTRAINT FK_Album_banda FOREIGN KEY (idBanda)
         REFERENCES Espuchifai.banda (idBanda),
@@ -31,6 +33,8 @@ CREATE TABLE Espuchifai.Cancion (
     orden TINYINT UNSIGNED NOT NULL,
     idAlbum MEDIUMINT UNSIGNED NOT NULL,
     idCancion INT UNSIGNED NOT NULL,
+    cantidad MEDIUMINT UNSIGNED NOT NULL,
+
     PRIMARY KEY (idCancion),
     CONSTRAINT FK_Cancion_Album FOREIGN KEY(idAlbum)
         REFERENCES Espuchifai.Album (idAlbum),
