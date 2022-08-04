@@ -18,11 +18,11 @@ END$$
 DELIMITER $$
  
 DROP PROCEDURE IF EXISTS  altaAlbum $$
-CREATE PROCEDURE altaAlbum ( unnombre  VARCHAR(45) , unlanzamiento DATE , unidBanda SMALLINT UNSIGNED , unidAlbum MEDIUMINT UNSIGNED )
+CREATE PROCEDURE altaAlbum ( unnombre  VARCHAR(45) , unlanzamiento DATE , unidBanda SMALLINT UNSIGNED , unidAlbum MEDIUMINT UNSIGNED)
  
 BEGIN
-                        INSERT INTO  Album (nombre , lanzamiento , idBanda, idAlbum )
-                                VALUES ( unnombre , unlanzamiento , unidBanda , unidAlbum );
+                        INSERT INTO  Album (nombre , lanzamiento , idBanda, idAlbum, cantidad)
+                                VALUES ( unnombre , unlanzamiento , unidBanda , unidAlbum , 0);
                            
 END$$
  
@@ -32,8 +32,8 @@ DROP PROCEDURE IF EXISTS altaCancion $$
 CREATE PROCEDURE altaCancion ( unnombre  VARCHAR(45) , unorden TINYINT UNSIGNED , unidAlbum MEDIUMINT UNSIGNED , unidCancion INT UNSIGNED)
  
 BEGIN
-                        INSERT INTO Cancion ( nombre , orden ,idAlbum , idCancion )
-                                VALUES ( unnombre , unorden , unidAlbum , unidCancion);
+                        INSERT INTO Cancion ( nombre , orden ,idAlbum , idCancion , cantidad)
+                                VALUES ( unnombre , unorden , unidAlbum , unidCancion , 0);
                        
 END$$
 
