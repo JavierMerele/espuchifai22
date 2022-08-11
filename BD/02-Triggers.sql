@@ -17,7 +17,7 @@ END $$
 
 DELIMITER $$
 
-DROP TRIGGER IF EXISTS AftInsReproduccion $$
+DROP TRIGGER IF EXISTS AftUpdReproduccion $$
 CREATE TRIGGER AftUpdReproduccion  AFTER UPDATE ON Cancion
 FOR EACH ROW
 BEGIN
