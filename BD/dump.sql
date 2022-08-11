@@ -1,4 +1,3 @@
-DELIMITER;
 USE Espuchifai;
 CALL altaBanda ('ACDC', '1978', 9);
 CALL altaAlbum ('Back in Black', '1980-09-25', 9, 4);

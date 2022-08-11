@@ -2,10 +2,11 @@ DROP DATABASE IF EXISTS Espuchifai;
 CREATE DATABASE Espuchifai;
 
 CREATE TABLE Espuchifai.Banda(
-    nombre VARCHAR(45)   NOT NULL FULL TEXT,
+    nombre VARCHAR(45)   NOT NULL,
     fundacion YEAR NOT NULL,
     idBanda SMALLINT UNSIGNED NOT NULL,
-    PRIMARY KEY(idBanda)
+    PRIMARY KEY(idBanda),
+    FULL TEXT (nombre)
 );
 CREATE TABLE Espuchifai.Usuario(
     nombre VARCHAR (45) NOT NULL,
@@ -17,7 +18,7 @@ CREATE TABLE Espuchifai.Usuario(
 );
 
 CREATE TABLE Espuchifai.Album(
-    nombre VARCHAR(45) NOT NULL FULL TEXT,
+    nombre VARCHAR(45) NOT NULL,
     lanzamiento DATE NOT NULL,
     idBanda SMALLINT UNSIGNED NOT NULL,
     idAlbum MEDIUMINT UNSIGNED NOT NULL,
@@ -26,10 +27,11 @@ CREATE TABLE Espuchifai.Album(
     PRIMARY KEY (idAlbum),
     CONSTRAINT FK_Album_banda FOREIGN KEY (idBanda)
         REFERENCES Espuchifai.banda (idBanda),
-    CONSTRAINT UQ_Album_nombre UNIQUE (nombre)
+    CONSTRAINT UQ_Album_nombre UNIQUE (nombre),
+    FULL TEXT (nombre)
 );
 CREATE TABLE Espuchifai.Cancion (
-    nombre VARCHAR(45) NOT NULL FULL TEXT,
+    nombre VARCHAR(45) NOT NULL,
     orden TINYINT UNSIGNED NOT NULL,
     idAlbum MEDIUMINT UNSIGNED NOT NULL,
     idCancion INT UNSIGNED NOT NULL,
@@ -38,7 +40,8 @@ CREATE TABLE Espuchifai.Cancion (
     PRIMARY KEY (idCancion),
     CONSTRAINT FK_Cancion_Album FOREIGN KEY(idAlbum)
         REFERENCES Espuchifai.Album (idAlbum),
-    CONSTRAINT UQ_Cancion_nombre UNIQUE (nombre)
+    CONSTRAINT UQ_Cancion_nombre UNIQUE (nombre),
+    FULL TEXT (nombre)
 );
 
 CREATE TABLE Espuchifai.Reproduccion(
