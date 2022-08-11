@@ -1,6 +1,8 @@
 -- 1) Cada vez que se inserta una reproducción, se incrementa el contador de reproducciones de la canción en uno.
 
 DELIMITER $$
+
+DROP TRIGGER IF EXISTS AftInsReproduccion
 CREATE TRIGGER AftInsReproduccion AFTER INSERT ON Reproduccion
 FOR EACH ROW
 BEGIN
@@ -14,7 +16,9 @@ END $$
 -- 2) Cada vez que se actualiza el contador de la canción en N reproducciones, se incrementa el contador del álbum también en N.
 
 DELIMITER $$
-CREATE TRIGGER AftUpdReproduccion  AFTER UPDATE Cancion
+
+DROP TRIGGER IF EXISTS AftInsReproduccion
+CREATE TRIGGER AftUpdReproduccion  AFTER UPDATE ON Cancion
 FOR EACH ROW
 BEGIN
     IF (NEW.cantidad > OLD.cantidad) THEN

@@ -6,7 +6,7 @@ CREATE TABLE Espuchifai.Banda(
     fundacion YEAR NOT NULL,
     idBanda SMALLINT UNSIGNED NOT NULL,
     PRIMARY KEY(idBanda),
-    FULL TEXT (nombre)
+    FULLTEXT (nombre)
 );
 CREATE TABLE Espuchifai.Usuario(
     nombre VARCHAR (45) NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE Espuchifai.Album(
     CONSTRAINT FK_Album_banda FOREIGN KEY (idBanda)
         REFERENCES Espuchifai.banda (idBanda),
     CONSTRAINT UQ_Album_nombre UNIQUE (nombre),
-    FULL TEXT (nombre)
+    FULLTEXT (nombre)
 );
 CREATE TABLE Espuchifai.Cancion (
     nombre VARCHAR(45) NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE Espuchifai.Cancion (
     CONSTRAINT FK_Cancion_Album FOREIGN KEY(idAlbum)
         REFERENCES Espuchifai.Album (idAlbum),
     CONSTRAINT UQ_Cancion_nombre UNIQUE (nombre),
-    FULL TEXT (nombre)
+    FULLTEXT (nombre)
 );
 
 CREATE TABLE Espuchifai.Reproduccion(
