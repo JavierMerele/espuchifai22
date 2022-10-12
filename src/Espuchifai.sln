@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Espuchifai.Core", "Espuchifai.Core\Espuchifai.Core.csproj", "{5294A58C-09BD-4A73-AB8D-8C51B7D56984}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Espuchifai.adoET12", "Espuchifai.adoET12\Espuchifai.adoET12.csproj", "{A5D9A30F-1354-4D3A-8552-71739A1BC1B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{5294A58C-09BD-4A73-AB8D-8C51B7D56984}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5294A58C-09BD-4A73-AB8D-8C51B7D56984}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5294A58C-09BD-4A73-AB8D-8C51B7D56984}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5D9A30F-1354-4D3A-8552-71739A1BC1B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5D9A30F-1354-4D3A-8552-71739A1BC1B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5D9A30F-1354-4D3A-8552-71739A1BC1B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5D9A30F-1354-4D3A-8552-71739A1BC1B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

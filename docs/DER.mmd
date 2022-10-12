@@ -4,7 +4,7 @@ class Banda
 Banda: +nombre tring
 Banda: +fundacion ushort
 Banda: +idBanda ushort
-Album  o-- Banda
+Album  *-- Banda
 
 class Album
 Album: +nombre string
@@ -12,7 +12,7 @@ Album: +lanzamiento DateTime
 Album: +idBanda ushort
 Album: +idAlbum int
 Album: +cantidad int
-Cancion o-- Album
+Cancion *-- Album
 
 class Cancion
 Cancion: +nombre string
