@@ -1,8 +1,8 @@
 namespace Espuchifai.Core;
 public class Reproduccion
 {
-    public DateTime Reproduccion { get; set; }
-    public Usuario Usuario { get; set; }
-    public Cancion Cancion { get; set; }
+    public DateTime reproduccion { get; set; }
+    public uint idUsuario { get; set; }
+    public uint idCancion { get; set; }
 
 }

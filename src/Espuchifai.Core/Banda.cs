@@ -2,9 +2,9 @@ namespace Espuchifai.Core;
 
 public class Banda
 {
-    public string Nombre {get;set;}
-    public string Fundacion {get;set;}
-    public int idBanda {get;set;}
-    public List<Cancion> Canciones { get; private set; }
+    public string? nombre { get; set; }
+    public string? fundacion { get; set; }
+    public uint idBanda { get; set; }
+
 
 }

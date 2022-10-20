@@ -2,11 +2,11 @@ namespace Espuchifai.Core;
 
 public class Cancion
 {
-    public string Nombre {get;set;}
-    public int Orden {get;set;}
-    public int idAlbum {get;set;}
-    public int idCancion {get;set;}
-    public int Cantidad {get;set;}
-    public List<Reproduccion> Reproducciones { get; private set; }
+    public string? nombre { get; set; }
+    public uint orden { get; set; }
+    public uint idAlbum { get; set; }
+    public uint idCancion { get; set; }
+    public uint cantidad { get; set; }
+
 
 }
