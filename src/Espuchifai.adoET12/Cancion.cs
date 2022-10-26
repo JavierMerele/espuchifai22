@@ -17,11 +17,11 @@ namespace Espuchifai.AdoMySQL.Mapeadores
         public override Cancion ObjetoDesdeFila(DataRow fila)
             => new Cancion()
             {
-                idCancion = Convert.ToInt32(fila["idUsuario"]),
+                idCancion = Convert.ToUInt32(fila["idCancion"]),
                 nombre = fila["nombre"].ToString(),
-                orden = Convert.ToInt32(fila["Orden"]),
-                cantidad = Convert.ToInt32(fila["Cantidad"]),
-                idAlbum = Convert.ToInt32(fila["idAlbum"])
+                orden = Convert.ToUInt32(fila["Orden"]),
+                cantidad = Convert.ToUInt32(fila["Cantidad"]),
+                idAlbum = Convert.ToUInt32(fila["idAlbum"])
             };
 
 

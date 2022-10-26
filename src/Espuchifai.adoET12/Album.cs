@@ -14,9 +14,9 @@ namespace Espuchifai.AdoMySQL.Mapeadores
         public override Album ObjetoDesdeFila(DataRow fila)
             => new Album()
             {
-                idAlbum = Convert.ToInt32(fila["idAlbum"]),
-                cantidad = fila["Cantidad"].ToInt32(),
-                idBanda = Convert.ToInt32 (fila["idBanda"]),
+                idAlbum = Convert.ToUInt32(fila["idAlbum"]),
+                cantidad = Convert.ToUInt32 (fila["Cantidad"]),
+                idBanda = Convert.ToUInt32 (fila["idBanda"]),
                 lanzamiento = Convert.ToDateTime (fila["Lanzamiento"]),
                 nombre = Convert.ToString (fila["Nombre"])
             };

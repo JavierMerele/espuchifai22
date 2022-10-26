@@ -14,9 +14,9 @@ namespace Espuchifai.AdoMySQL.Mapeadores
         public override Reproduccion ObjetoDesdeFila(DataRow fila)
             => new Reproduccion()
             {
-                idCancion = Convert.ToInt32(fila["idCancion"]),
-                idUsuario = fila["idUsuario"].ToInt32(),
-                Reproduccion = Convert.ToDateTime (fila["Reproduccion"])
+                idCancion = Convert.ToUInt32(fila["idCancion"]),
+                idUsuario = Convert.ToUInt32(fila["idUsuario"]),
+                reproduccion = Convert.ToDateTime (fila["Reproduccion"])
             };
 
 

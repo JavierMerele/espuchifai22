@@ -17,7 +17,7 @@ namespace Espuchifai.AdoMySQL.Mapeadores
         public override Usuario ObjetoDesdeFila(DataRow fila)
             => new Usuario()
             {
-                idUsuario = Convert.ToInt32(fila["idUsuario"]),
+                idUsuario = Convert.ToUInt32(fila["idUsuario"]),
                 nombre = fila["nombre"].ToString(),
                 apellido= fila["apellido"].ToString(),
                 contrasenia= fila["contrasenia"].ToString(),
