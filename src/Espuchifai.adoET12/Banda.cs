@@ -17,7 +17,7 @@ namespace Espuchifai.AdoMySQL.Mapeadores
         public override Banda ObjetoDesdeFila(DataRow fila)
             => new Banda()
             {
-                idBanda = Convert.ToByte(fila["idUsuario"]),
+                idBanda = Convert.ToInt32(fila["idUsuario"]),
                 nombre = fila["nombre"].ToString(),
                 fundacion = Convert.ToDateTime (fila["fundacion"])
             };
