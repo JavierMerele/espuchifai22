@@ -21,6 +21,34 @@ namespace Espuchifai.AdoMySQL.Mapeadores
                 nombre = Convert.ToString (fila["Nombre"])
             };
 
+        public void AltaAlbum(Album album)
+            => EjecutarComandoCon("altaBanda", AltaAlbum , album);
+
+        public void ConfigurarAltaAlbum(Album album)
+        {
+            SetComandoSP("altaAlbum");
+
+            BP.CrearParametro("unidBanda")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt32)
+            .SetValor(album.idBanda)
+            .AgregarParametro();
+
+            BP.CrearParametroSalida("unidAlbum")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt32)
+            .AgregarParametro();
+
+            BP.CrearParametro("unnombre")
+            .SetTipoVarchar(45)
+            .SetValor(album.nombre)
+            .AgregarParametro();
+
+            BP.CrearParametro("unLanzamiento")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.DateTime)
+            .SetValor(album.lanzamiento)
+            .AgregarParametro();
+
+        }
+
 
     }
 }
