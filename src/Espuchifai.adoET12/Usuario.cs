@@ -19,9 +19,9 @@ namespace Espuchifai.AdoMySQL.Mapeadores
             {
                 idUsuario = Convert.ToByte(fila["idUsuario"]),
                 nombre = fila["nombre"].ToString(),
-                apellido= fila["nombre"].ToString(),
-                contrasenia= fila["nombre"].ToString(),
-                email= fila["nombre"].ToString()
+                apellido= fila["apellido"].ToString(),
+                contrasenia= fila["contraseña"].ToString(),
+                email= fila["email"].ToString()
             };
 
 

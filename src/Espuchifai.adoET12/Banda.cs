@@ -1,6 +1,3 @@
-
-
-
 using et12.edu.ar.AGBD.Mapeadores;
 using et12.edu.ar.AGBD.Ado;
 using System.Data;
@@ -17,7 +14,7 @@ namespace Espuchifai.AdoMySQL.Mapeadores
         public override Banda ObjetoDesdeFila(DataRow fila)
             => new Banda()
             {
-                idBanda = Convert.ToByte(fila["idUsuario"]),
+                idBanda = Convert.ToInt32(fila["idUsuario"]),
                 nombre = fila["nombre"].ToString(),
                 fundacion = Convert.ToDateTime (fila["fundacion"])
             };
