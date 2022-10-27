@@ -1,13 +1,13 @@
-using et12.edu.ar.AGBD.Mapeadores;
-using et12.edu.ar.AGBD.Ado;
 using System.Data;
 using Espuchifai.Core;
+using et12.edu.ar.AGBD.Ado;
+using et12.edu.ar.AGBD.Mapeadores;
 
 namespace Espuchifai.AdoMySQL.Mapeadores
 {
-    public class MapBanda: Mapeador<Banda>
+    public class MapBanda : Mapeador<Banda>
     {
-        public MapBanda(AdoAGBD ado):base(ado)
+        public MapBanda(AdoAGBD ado) : base(ado)
         {
             Tabla = "Banda";
         }
@@ -16,10 +16,10 @@ namespace Espuchifai.AdoMySQL.Mapeadores
             {
                 idBanda = Convert.ToUInt32(fila["idUsuario"]),
                 nombre = fila["nombre"].ToString(),
-                fundacion = Convert.ToDateTime (fila["Fundacion"])
+                fundacion = Convert.ToDateTime(fila["Fundacion"])
             };
-    public void AltaBanda(Banda banda)
-            => EjecutarComandoCon("altaBanda", AltaBanda ,postAltaBanda, banda);
+        public void AltaBanda(Banda banda)
+                => EjecutarComandoCon("altaBanda", AltaBanda, postAltaBanda, banda);
 
         public void ConfigurarAltaBanda(Banda banda)
         {
@@ -62,7 +62,7 @@ namespace Espuchifai.AdoMySQL.Mapeadores
 
 
 
-        }
-
-        
     }
+
+
+}

@@ -1,13 +1,13 @@
-using et12.edu.ar.AGBD.Mapeadores;
-using et12.edu.ar.AGBD.Ado;
 using System.Data;
 using Espuchifai.Core;
+using et12.edu.ar.AGBD.Ado;
+using et12.edu.ar.AGBD.Mapeadores;
 
 namespace Espuchifai.AdoMySQL.Mapeadores
 {
-    public class MapAlbum: Mapeador<Album>
+    public class MapAlbum : Mapeador<Album>
     {
-        public MapAlbum(AdoAGBD ado):base(ado)
+        public MapAlbum(AdoAGBD ado) : base(ado)
         {
             Tabla = "Album";
         }
@@ -15,14 +15,14 @@ namespace Espuchifai.AdoMySQL.Mapeadores
             => new Album()
             {
                 idAlbum = Convert.ToUInt32(fila["idAlbum"]),
-                cantidad = Convert.ToUInt32 (fila["Cantidad"]),
-                idBanda = Convert.ToUInt32 (fila["idBanda"]),
-                lanzamiento = Convert.ToDateTime (fila["Lanzamiento"]),
-                nombre = Convert.ToString (fila["Nombre"])
+                cantidad = Convert.ToUInt32(fila["Cantidad"]),
+                idBanda = Convert.ToUInt32(fila["idBanda"]),
+                lanzamiento = Convert.ToDateTime(fila["Lanzamiento"]),
+                nombre = Convert.ToString(fila["Nombre"])
             };
 
         public void AltaAlbum(Album album)
-            => EjecutarComandoCon("altaBanda", AltaAlbum , album);
+            => EjecutarComandoCon("altaBanda", AltaAlbum, album);
 
         public void ConfigurarAltaAlbum(Album album)
         {

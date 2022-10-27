@@ -1,16 +1,13 @@
-
-
-
-using et12.edu.ar.AGBD.Mapeadores;
-using et12.edu.ar.AGBD.Ado;
 using System.Data;
 using Espuchifai.Core;
+using et12.edu.ar.AGBD.Ado;
+using et12.edu.ar.AGBD.Mapeadores;
 
 namespace Espuchifai.AdoMySQL.Mapeadores
 {
-    public class MapCancion: Mapeador<Cancion>
+    public class MapCancion : Mapeador<Cancion>
     {
-        public MapCancion(AdoAGBD ado):base(ado)
+        public MapCancion(AdoAGBD ado) : base(ado)
         {
             Tabla = "Cancion";
         }
@@ -25,7 +22,7 @@ namespace Espuchifai.AdoMySQL.Mapeadores
             };
 
         public void AltaCancion(Cancion cancion)
-            => EjecutarComandoCon("altaCancion", AltaCancion , postAltaCancion , cancion);
+            => EjecutarComandoCon("altaCancion", AltaCancion, postAltaCancion, cancion);
 
         public void ConfigurarAltaCancion(Cancion cancion)
         {
@@ -60,8 +57,7 @@ namespace Espuchifai.AdoMySQL.Mapeadores
         }
 
 
-        
+
     }
 }
 
-    
