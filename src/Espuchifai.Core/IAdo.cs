@@ -7,7 +7,7 @@ public interface IAdo
     List<Banda> ObtenerBanda();
 
 
-    void AltaAlbum(Album album);
+   /* void AltaAlbum(Album album);
     List<Album> ObtenerAlbum();
 
 
@@ -23,6 +23,6 @@ public interface IAdo
 
     void registrarCliente(Usuario usuario);
 
-    List<Usuario> ObtenerUsuario();
+    List<Usuario> ObtenerUsuario(); */
 
 }

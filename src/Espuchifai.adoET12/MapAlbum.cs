@@ -12,14 +12,14 @@ namespace Espuchifai.AdoMySQL.Mapeadores
             Tabla = "Album";
         }
         public override Album ObjetoDesdeFila(DataRow fila)
-            => new Album()
-            {
-                idAlbum = Convert.ToUInt32(fila["idAlbum"]),
-                cantidad = Convert.ToUInt32(fila["Cantidad"]),
-                idBanda = Convert.ToUInt32(fila["idBanda"]),
-                lanzamiento = Convert.ToDateTime(fila["Lanzamiento"]),
-                nombre = Convert.ToString(fila["Nombre"])
-            };
+            => new Album
+            (
+                idAlbum: Convert.ToUInt32(fila["IdAlbum"]),
+                cantidad: Convert.ToUInt32(fila["Cantidad"]),
+                idBanda: Convert.ToUInt32(fila["IdBanda"]),
+                lanzamiento: Convert.ToDateTime(fila["Lanzamiento"]),
+                nombre: Convert.ToString(fila["Nombre"])!
+            );
 
         public void AltaAlbum(Album album)
             => EjecutarComandoCon("altaBanda", AltaAlbum, album);
@@ -30,7 +30,7 @@ namespace Espuchifai.AdoMySQL.Mapeadores
 
             BP.CrearParametro("unidBanda")
             .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt32)
-            .SetValor(album.idBanda)
+            .SetValor(album.IdBanda)
             .AgregarParametro();
 
             BP.CrearParametroSalida("unidAlbum")
@@ -39,16 +39,24 @@ namespace Espuchifai.AdoMySQL.Mapeadores
 
             BP.CrearParametro("unnombre")
             .SetTipoVarchar(45)
-            .SetValor(album.nombre)
+            .SetValor(album.Nombre)
             .AgregarParametro();
 
             BP.CrearParametro("unLanzamiento")
             .SetTipo(MySql.Data.MySqlClient.MySqlDbType.DateTime)
-            .SetValor(album.lanzamiento)
+            .SetValor(album.Lanzamiento)
             .AgregarParametro();
+        }   
+        public void postAltaAlbum(Album album)
+        {
+            var paramidAlbum = GetParametro("unidAlbum");
+            album.IdBanda = Convert.ToUInt32(paramidAlbum.Value);
+        }
+
+        public List<Album> ObtenerAlbum() => ColeccionDesdeTabla();
+
 
         }
 
 
     }
-}

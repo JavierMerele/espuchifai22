@@ -2,11 +2,16 @@ namespace Espuchifai.Core;
 
 public class Album
 {
-    public string? nombre { get; set; }
-    public DateTime lanzamiento { get; set; }
-    public uint idBanda { get; set; }
-    public uint idAlbum { get; set; }
-    public uint cantidad { get; set; }
+    public string Nombre { get; set; }
+    public DateTime Lanzamiento { get; set; }
+    public uint IdBanda { get; set; }
+    public uint IdAlbum { get; set; }
+    public uint Cantidad { get; set; }
 
-
+    public Album(string nombre , uint fundacion , uint idBanda)
+    {
+        this.Nombre = nombre;
+        this.Fundacion = fundacion;
+        this.IdBanda = idBanda;
+    }
 }

@@ -12,12 +12,13 @@ namespace Espuchifai.AdoMySQL.Mapeadores
             Tabla = "Banda";
         }
         public override Banda ObjetoDesdeFila(DataRow fila)
-            => new Banda()
-            {
-                idBanda = Convert.ToUInt32(fila["idUsuario"]),
-                nombre = fila["nombre"].ToString(),
-                fundacion = Convert.ToDateTime(fila["Fundacion"])
-            };
+            => new Banda
+            (
+                idBanda: Convert.ToUInt32(fila["idUsuario"]),
+                nombre: fila["nombre"].ToString()!,
+                fundacion: Convert.ToUInt32(fila["Fundacion"])
+            );
+
         public void AltaBanda(Banda banda)
                 => EjecutarComandoCon("altaBanda", AltaBanda, postAltaBanda, banda);
 
@@ -31,30 +32,18 @@ namespace Espuchifai.AdoMySQL.Mapeadores
 
             BP.CrearParametro("unnombre")
             .SetTipoVarchar(45)
-            .SetValor(banda.nombre)
+            .SetValor(banda.Nombre)
             .AgregarParametro();
 
             BP.CrearParametro("unafundacion")
             .SetTipo(MySql.Data.MySqlClient.MySqlDbType.DateTime)
-            .SetValor(banda.fundacion)
+            .SetValor(banda.Fundacion)
             .AgregarParametro();
         }
         public void postAltaBanda(Banda banda)
         {
             var paramidBanda = GetParametro("unidBanda");
-            banda.idBanda = Convert.ToUInt32(paramidBanda.Value);
-        }
-
-        public Banda BandaPorId(byte id)
-        {
-            SetComandoSP("BandaPorId");
-
-            BP.CrearParametro("unIdBanda")
-            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Byte)
-            .SetValor(id)
-            .AgregarParametro();
-
-            return ElementoDesdeSP();
+            banda.IdBanda = Convert.ToUInt32(paramidBanda.Value);
         }
 
         public List<Banda> ObtenerBandas() => ColeccionDesdeTabla();

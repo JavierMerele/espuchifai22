@@ -2,9 +2,16 @@ namespace Espuchifai.Core;
 
 public class Banda
 {
-    public string? nombre { get; set; }
-    public DateTime fundacion { get; set; }
-    public uint idBanda { get; set; }
+    public string Nombre { get; set; }
+    public uint Fundacion { get; set; }
+    public uint IdBanda { get; set; }
+
+    public Banda(string nombre , uint fundacion , uint idBanda)
+    {
+        this.Nombre = nombre;
+        this.Fundacion = fundacion;
+        this.IdBanda = idBanda;
+    }
 
 
 }
