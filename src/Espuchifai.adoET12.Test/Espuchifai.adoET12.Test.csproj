@@ -25,5 +25,11 @@
     <ProjectReference Include="..\Espuchifai.Core\Espuchifai.Core.csproj" />
     <ProjectReference Include="..\Espuchifai.adoET12\Espuchifai.adoET12.csproj" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <None Update="appSettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 
 </Project>

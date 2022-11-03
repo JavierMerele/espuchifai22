@@ -14,13 +14,13 @@ namespace Espuchifai.AdoMySQL.Mapeadores
         public override Banda ObjetoDesdeFila(DataRow fila)
             => new Banda
             (
-                idBanda: Convert.ToUInt32(fila["idUsuario"]),
+                idBanda: Convert.ToUInt32(fila["idBanda"]),
                 nombre: fila["nombre"].ToString()!,
                 fundacion: Convert.ToUInt32(fila["Fundacion"])
             );
 
         public void AltaBanda(Banda banda)
-                => EjecutarComandoCon("altaBanda", AltaBanda, postAltaBanda, banda);
+                => EjecutarComandoCon("altaBanda", ConfigurarAltaBanda, postAltaBanda, banda);
 
         public void ConfigurarAltaBanda(Banda banda)
         {
@@ -36,7 +36,7 @@ namespace Espuchifai.AdoMySQL.Mapeadores
             .AgregarParametro();
 
             BP.CrearParametro("unafundacion")
-            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.DateTime)
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
             .SetValor(banda.Fundacion)
             .AgregarParametro();
         }

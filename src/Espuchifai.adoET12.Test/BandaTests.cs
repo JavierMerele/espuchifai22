@@ -1,28 +1,31 @@
+using Espuchifai.Core;
+using et12.edu.ar.AGBD.Ado;
+
 namespace Espuchifai.adoET12.Test;
 
 public class BandaTests
 {
-    
-    public AdoTest Ado { get; set; }
-    public BandaTest()
+
+    public AdoEspuchifai Ado { get; set; }
+    public BandaTests()
     {
         var adoAGBD = FactoryAdoAGBD.GetAdoMySQL("appSettings.json", "test");
-        Ado = new AdoTest(adoAGBD);
+        Ado = new(adoAGBD);
     }
 
     [Fact]
     public void AltaBanda()
     {
-        var banda = new Banda("QUEEN");
+        var banda = new Banda("QUEEN", 1980, 0);
         Ado.AltaBanda(banda);
-        Assert.Equal(2, banda.Id);
+        Assert.Equal((uint)10, banda.IdBanda);
     }
 
     [Theory]
-    [InlineData(1, "ACDC")]
+    [InlineData(9, "ACDC")]
     public void TraerBandas(byte id, string nombre)
     {
         var banda = Ado.ObtenerBandas();
-        Assert.Contains(banda, x => x.Id == id && x.Nombre == nombre);
+        Assert.Contains(banda, x => x.IdBanda == id && x.Nombre == nombre);
     }
 }

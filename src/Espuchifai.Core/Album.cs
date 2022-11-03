@@ -8,10 +8,12 @@ public class Album
     public uint IdAlbum { get; set; }
     public uint Cantidad { get; set; }
 
-    public Album(string nombre , uint fundacion , uint idBanda)
+    public Album(string nombre, DateTime lanzamiento, uint idBanda, uint idAlbum, uint cantidad)
     {
         this.Nombre = nombre;
-        this.Fundacion = fundacion;
+        this.Lanzamiento = lanzamiento;
         this.IdBanda = idBanda;
+        this.IdAlbum = idAlbum;
+        this.Cantidad = cantidad;
     }
 }
