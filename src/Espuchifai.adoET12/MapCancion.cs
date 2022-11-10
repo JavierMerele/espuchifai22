@@ -24,7 +24,7 @@ namespace Espuchifai.AdoMySQL.Mapeadores
         public void AltaCancion(Cancion cancion)
             => EjecutarComandoCon("altaCancion", AltaCancion, postAltaCancion, cancion);
 
-    
+
         public void ConfigurarAltaCancion(Cancion cancion)
         {
             SetComandoSP("altaCancion");
@@ -60,6 +60,6 @@ namespace Espuchifai.AdoMySQL.Mapeadores
 
     }
 
-    }
+}
 
 

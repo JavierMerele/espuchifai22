@@ -41,13 +41,6 @@ public class MapReproducciones : Mapeador<Reproducciones>
         .AgregarParametro();
 
     }
-    public void postAltaCancion(Reproducciones reproducciones)
-    {
-        var paramidCancion = GetParametro("unidCancion");
-        reproducciones.IdCancion = Convert.ToUInt32(paramidCancion.Value);
-        var paramiUsuario = GetParametro("unidUsuario");
-        reproducciones.IdUsuario = Convert.ToUInt32(paramiUsuario.Value);
-    }
     public List<Reproducciones> ObtenerReproducciones() => ColeccionDesdeTabla();
 
 }
