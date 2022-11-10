@@ -18,7 +18,16 @@ VALUES (
         unidBanda
     );
 
-END$$ 
+DELIMITER $$
+
+CREATE PROCEDURE altaBanda(OUT unidBanda SMALLINT UNSIGNED
+, unnombre VARCHAR(45)) BEGIN 
+	INSERT INTO banda (banda) VALUE (nombre);
+	SET unidBanda = LAST_INSERT_ID();
+	END 
+$$
+
+
 
 DELIMITER $$
 
@@ -47,7 +56,16 @@ VALUES (
         0
     );
 
-END$$ 
+DELIMITER $$
+
+CREATE PROCEDURE altaAlbum(OUT unidAlbum SMALLINT UNSIGNED
+, unnombre VARCHAR(45)) BEGIN 
+	INSERT INTO album (album) VALUE (nombre);
+	SET unidAlbum = LAST_INSERT_ID();
+	END 
+$$
+
+
 
 DELIMITER $$
 
@@ -76,7 +94,16 @@ VALUES (
         0
     );
 
-END$$ 
+DELIMITER $$
+
+CREATE PROCEDURE altaCancion(OUT unidCancion SMALLINT UNSIGNED
+, unnombre VARCHAR(45)) BEGIN 
+	INSERT INTO cancion (cancion) VALUE (nombre);
+	SET unidCancion = LAST_INSERT_ID();
+	END 
+$$
+
+
 
 DELIMITER $$
 

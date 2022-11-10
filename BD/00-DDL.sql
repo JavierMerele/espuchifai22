@@ -25,7 +25,7 @@ CREATE TABLE
     Espuchifai.Album(
         nombre VARCHAR(45) NOT NULL,
         lanzamiento DATE NOT NULL,
-        idBanda SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+        idBanda SMALLINT UNSIGNED NOT NULL,
         idAlbum MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
         cantidad MEDIUMINT UNSIGNED NOT NULL,
         PRIMARY KEY (idAlbum),
@@ -38,7 +38,7 @@ CREATE TABLE
     Espuchifai.Cancion (
         nombre VARCHAR(45) NOT NULL,
         orden TINYINT UNSIGNED NOT NULL,
-        idAlbum MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+        idAlbum MEDIUMINT UNSIGNED NOT NULL,
         idCancion INT UNSIGNED NOT NULL AUTO_INCREMENT,
         cantidad MEDIUMINT UNSIGNED NOT NULL,
         PRIMARY KEY (idCancion),
@@ -50,8 +50,8 @@ CREATE TABLE
 CREATE TABLE
     Espuchifai.Reproduccion(
         reproduccion DATETIME NOT NULL,
-        idCancion INT UNSIGNED NOT NULL AUTO_INCREMENT,
-        idUsuario SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+        idCancion INT UNSIGNED NOT NULL,
+        idUsuario SMALLINT UNSIGNED NOT NULL,
         PRIMARY KEY (
             reproduccion,
             idCancion,
