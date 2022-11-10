@@ -17,7 +17,7 @@ namespace Espuchifai.adoET12.Test
     [Fact]
     public void AltaAlbum()
     {
-        var album = new Album("Thriller",new DateTime(1984-01-23),10,5,1);
+        var album = new Album("Thriller",new DateTime(1984-1-23),10,5,1);
         Ado.AltaAlbum(album);
         Assert.Equal((uint)10, album.IdAlbum);
     }
