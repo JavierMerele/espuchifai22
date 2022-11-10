@@ -1,7 +1,7 @@
 USE Espuchifai;
-CALL altaBanda ('ACDC', '1978', 9);
-CALL altaAlbum ('Back in Black', '1980-09-25', 9, 4);
-CALL altaAlbum ('powerage', '1978-05-05', 9, 7);
+CALL altaBanda ('ACDC', '1978', @idAcDC);
+CALL altaAlbum ('Back in Black', '1980-09-25', @idAcDC, 4);
+CALL altaAlbum ('powerage', '1978-05-05', @idAcDC, 7);
 CALL altaCancion ('Hells Bells', 1, 4, 10);
 CALL altaCancion ('Shoot to trill', 2, 4, 11);
 CALL altaCancion ('What do you for monney honey', 3, 4, 12);
