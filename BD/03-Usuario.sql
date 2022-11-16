@@ -1,3 +1,4 @@
+SELECT 'Usuario' Estado;
 CREATE USER IF NOT EXISTS "Banda" @'%' IDENTIFIED BY 'manzana';
 
 GRANT INSERT,SELECT ON Espuchifai.Banda TO "Banda" @'%';

@@ -1,5 +1,5 @@
 USE Espuchifai;
-
+SELECT 'Creando SP y FS' Estado;
 DELIMITER $$
 
 DROP PROCEDURE
@@ -16,13 +16,9 @@ VALUES (
         unnombre,
         unafundacion,
         unidBanda
-    );
+);
 
-DELIMITER $$
-
-CREATE PROCEDURE altaBanda(unnombre VARCHAR(45), unafundacion YEAR,OUT unidBanda SMALLINT UNSIGNED) 
-BEGIN 
-	INSERT INTO altaBanda (idBanda) VALUE (nombre);
+INSERT INTO Banda (idBanda) VALUE (nombre);
 	SET unidBanda = LAST_INSERT_ID();
 	END 
 $$
@@ -56,11 +52,7 @@ VALUES (
         0
     );
 
-DELIMITER $$
-
-CREATE PROCEDURE altaAlbum(unnombre VARCHAR(45),unlanzamiento DATE,unidBanda SMALLINT UNSIGNED,OUT unidAlbum SMALLINT UNSIGNED)
-BEGIN 
-	INSERT INTO altaAlbum (idAlbum) VALUE (nombre);
+INSERT INTO Album (idAlbum) VALUE (nombre);
 	SET unidAlbum = LAST_INSERT_ID();
 	END 
 $$
@@ -93,12 +85,7 @@ VALUES (
         unidCancion,
         0
     );
-
-DELIMITER $$
-
-CREATE PROCEDURE altaCancion(unnombre VARCHAR(45), unorden TINYINT UNSIGNED,unidAlbum MEDIUMINT UNSIGNED ,OUT unidCancion SMALLINT UNSIGNED) 
-BEGIN 
-	INSERT INTO altaCancion (idCancion) VALUE (nombre);
+INSERT INTO Cancion (idCancion) VALUE (nombre);
 	SET unidCancion = LAST_INSERT_ID();
 	END 
 $$
