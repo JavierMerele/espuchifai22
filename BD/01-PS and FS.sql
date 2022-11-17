@@ -1,5 +1,7 @@
-USE Espuchifai;
+USE Espuchifai ;
+
 SELECT 'Creando SP y FS' Estado;
+
 DELIMITER $$
 
 DROP PROCEDURE
@@ -8,7 +10,7 @@ CREATE PROCEDURE
     altaBanda (
         unnombre VARCHAR(45),
         unafundacion YEAR,
-        unidBanda SMALLINT UNSIGNED
+        OUT unidBanda SMALLINT UNSIGNED
     ) BEGIN
 INSERT INTO
     Banda (nombre, fundacion, idBanda)
@@ -16,14 +18,11 @@ VALUES (
         unnombre,
         unafundacion,
         unidBanda
-);
+    );
 
-INSERT INTO Banda (idBanda) VALUE (nombre);
-	SET unidBanda = LAST_INSERT_ID();
-	END 
-$$
+SET unidBanda = LAST_INSERT_ID();
 
-
+END $$ 
 
 DELIMITER $$
 
@@ -34,7 +33,7 @@ CREATE PROCEDURE
         unnombre VARCHAR(45),
         unlanzamiento DATE,
         unidBanda SMALLINT UNSIGNED,
-        unidAlbum MEDIUMINT UNSIGNED
+        OUT unidAlbum MEDIUMINT UNSIGNED
     ) BEGIN
 INSERT INTO
     Album (
@@ -52,12 +51,9 @@ VALUES (
         0
     );
 
-INSERT INTO Album (idAlbum) VALUE (nombre);
-	SET unidAlbum = LAST_INSERT_ID();
-	END 
-$$
+SET unidAlbum = LAST_INSERT_ID();
 
-
+END $$ 
 
 DELIMITER $$
 
@@ -68,7 +64,7 @@ CREATE PROCEDURE
         unnombre VARCHAR(45),
         unorden TINYINT UNSIGNED,
         unidAlbum MEDIUMINT UNSIGNED,
-        unidCancion INT UNSIGNED
+        OUT unidCancion INT UNSIGNED
     ) BEGIN
 INSERT INTO
     Cancion (
@@ -85,12 +81,10 @@ VALUES (
         unidCancion,
         0
     );
-INSERT INTO Cancion (idCancion) VALUE (nombre);
-	SET unidCancion = LAST_INSERT_ID();
-	END 
-$$
 
+SET unidCancion = LAST_INSERT_ID();
 
+END $$ 
 
 DELIMITER $$
 

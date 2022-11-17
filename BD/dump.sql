@@ -28,8 +28,8 @@ CALL
         58
     );
 
-CALL Reproducir (now(), 10, 58);
+CALL Reproducir (now(), @idWhatdoyouformonneyhoney, 58);
 
-CALL Reproducir (now(),11,58);
+CALL Reproducir (now(),@idRockRollDamnation,58);
 
-CALL Reproducir (now(),15,58);
+CALL Reproducir (now(),@GimmeaBullet,58);
