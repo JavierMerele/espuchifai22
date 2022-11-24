@@ -16,11 +16,11 @@ namespace Espuchifai.adoET12.Test
     {
         var cancion = new Cancion("Shape of You",1,5,16,2);
         Ado.AltaCancion(cancion);
-        Assert.Equal((uint)10, cancion.IdCancion);
+        Assert.Equal((uint)0, cancion.IdCancion);
     }
 
     [Theory]
-    [InlineData(15,"Gimme a Bullet")]
+    [InlineData(1,"Gimme a Bullet")]
     public void TraerCanciones(byte id, string nombre)
     {
         var cancions = Ado.ObtenerCancion();

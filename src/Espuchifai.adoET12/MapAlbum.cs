@@ -22,7 +22,7 @@ namespace Espuchifai.AdoMySQL.Mapeadores
             );
 
         public void AltaAlbum(Album album)
-            => EjecutarComandoCon("altaBanda", AltaAlbum, album);
+            => EjecutarComandoCon("altaBanda", ConfigurarAltaAlbum, album);
 
         public void ConfigurarAltaAlbum(Album album)
         {

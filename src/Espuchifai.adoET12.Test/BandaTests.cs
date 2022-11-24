@@ -18,11 +18,11 @@ public class BandaTests
     {
         var banda = new Banda("QUEEN", 1980, 0);
         Ado.AltaBanda(banda);
-        Assert.Equal((uint)10, banda.IdBanda);
+        Assert.Equal((uint)2, banda.IdBanda);
     }
 
     [Theory]
-    [InlineData(9, "ACDC")]
+    [InlineData(1, "ACDC")]
     public void TraerBandas(byte id, string nombre)
     {
         var banda = Ado.ObtenerBandas();
