@@ -22,7 +22,7 @@ namespace Espuchifai.AdoMySQL.Mapeadores
             );
 
         public void AltaAlbum(Album album)
-            => EjecutarComandoCon("altaBanda", ConfigurarAltaAlbum, album);
+            => EjecutarComandoCon("altaAlbum", ConfigurarAltaAlbum, postAltaAlbum, album);
 
         public void ConfigurarAltaAlbum(Album album)
         {
@@ -46,7 +46,7 @@ namespace Espuchifai.AdoMySQL.Mapeadores
             .SetTipo(MySql.Data.MySqlClient.MySqlDbType.DateTime)
             .SetValor(album.Lanzamiento)
             .AgregarParametro();
-        }   
+        }
         public void postAltaAlbum(Album album)
         {
             var paramidAlbum = GetParametro("unidAlbum");
@@ -56,7 +56,7 @@ namespace Espuchifai.AdoMySQL.Mapeadores
         public List<Album> ObtenerAlbum() => ColeccionDesdeTabla();
 
 
-        }
-
-
     }
+
+
+}

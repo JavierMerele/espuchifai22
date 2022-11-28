@@ -21,10 +21,10 @@ namespace Espuchifai.AdoMySQL.Mapeadores
                 email: fila["email"].ToString()!
             );
         public void AltaUsuario(Usuario usuario)
-                => EjecutarComandoCon("altaReproduccion", AltaUsuario, postAltaUsuario, usuario);
+                => EjecutarComandoCon("altaUsuario", ConfigurarAltaUsuario, postAltaUsuario, usuario);
 
 
-        public void ConfigurarAltaReproduccion(Usuario usuario)
+        public void ConfigurarAltaUsuario(Usuario usuario)
         {
             SetComandoSP("altaUsuario");
 
