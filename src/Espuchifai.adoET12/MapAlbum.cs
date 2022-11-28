@@ -50,7 +50,7 @@ namespace Espuchifai.AdoMySQL.Mapeadores
         public void postAltaAlbum(Album album)
         {
             var paramidAlbum = GetParametro("unidAlbum");
-            album.IdBanda = Convert.ToUInt32(paramidAlbum.Value);
+            album.IdAlbum = Convert.ToUInt32(paramidAlbum.Value);
         }
 
         public List<Album> ObtenerAlbum() => ColeccionDesdeTabla();
