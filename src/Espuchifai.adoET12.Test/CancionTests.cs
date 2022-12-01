@@ -14,9 +14,9 @@ namespace Espuchifai.adoET12.Test
         [Fact]
         public void AltaCancion()
         {
-            var cancion = new Cancion("Shape of You", 1, 0, 1, 2);
+            var cancion = new Cancion("Shape of You", orden: 1, idAlbum: 2, idCancion: 1, cantidad: 2);
             Ado.AltaCancion(cancion);
-            Assert.Equal((uint)0, cancion.IdCancion);
+            Assert.Equal((uint)7, cancion.IdCancion);
         }
 
         [Theory]

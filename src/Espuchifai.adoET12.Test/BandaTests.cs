@@ -16,7 +16,7 @@ public class BandaTests
     [Fact]
     public void AltaBanda()
     {
-        var banda = new Banda("QUEEN", 1980, 0);
+        var banda = new Banda("QUEEN", 1980, idBanda: 2);
         Ado.AltaBanda(banda);
         Assert.Equal((uint)2, banda.IdBanda);
     }
