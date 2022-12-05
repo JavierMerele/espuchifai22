@@ -19,7 +19,7 @@ public class MapReproducciones : Mapeador<Reproducciones>
         );
 
     public void AltaReproduccion(Reproducciones reproducciones)
-            => EjecutarComandoCon("altaReproduccion", AltaReproduccion, reproducciones);
+            => EjecutarComandoCon("altaReproduccion", ConfigurarAltaReproduccion, reproducciones);
 
 
     public void ConfigurarAltaReproduccion(Reproducciones reproducciones)
