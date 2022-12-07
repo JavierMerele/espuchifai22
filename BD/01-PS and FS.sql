@@ -142,15 +142,25 @@ DELIMITER $$
 
 DROP PROCEDURE
     IF EXISTS ObtenerUsuarios $$
-CREATE PROCEDURE ObtenerUsuarios(contrasenia VARCHAR(45) , email VARCHAR(45))
-BEGIN
-
-SELECT u.contrania,u.email
+CREATE PROCEDURE
+    ObtenerUsuarios(
+        nombre VARCHAR(45),
+        apellido VARCHAR(45),
+        idUsuario SMALLINT UNSIGNED,
+        contrasenia CHAR(64),
+        email VARCHAR(45)
+    ) BEGIN
+SELECT
+    u.contrania,
+    u.email,
+    u.nombre,
+    u.apellido,
+    u.idUsuario
 FROM Usuario u
-WHERE contrasenia = SHA2 (unaContrasenia, 256)
-AND  email = unEmail
-END $$
--- 3) Se pide hacer el SF ‘CantidadReproduccionesBanda’ que reciba por parámetro un identificador de banda y 2 fechas,se debe devolver la cantidad de reproducciones que tuvieron las canciones de esa banda entre esas 2 fechas (inclusive).
+WHERE
+    contrasenia = SHA2 (unaContrasenia, 256)
+    AND email = unEmail
+END $$ -- 3) Se pide hacer el SF ‘CantidadReproduccionesBanda’ que reciba por parámetro un identificador de banda y 2 fechas,se debe devolver la cantidad de reproducciones que tuvieron las canciones de esa banda entre esas 2 fechas (inclusive).
 
 DELIMITER $$
 

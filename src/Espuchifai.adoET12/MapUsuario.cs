@@ -22,8 +22,7 @@ namespace Espuchifai.AdoMySQL.Mapeadores
             );
         public void AltaUsuario(Usuario usuario)
                 => EjecutarComandoCon("altaUsuario", ConfigurarAltaUsuario, postAltaUsuario, usuario);
-
-
+        
         public void ConfigurarAltaUsuario(Usuario usuario)
         {
             SetComandoSP("altaUsuario");
@@ -59,6 +58,26 @@ namespace Espuchifai.AdoMySQL.Mapeadores
             usuario.IdUsuario = Convert.ToUInt32(paramiUsuario.Value);
         }
         public List<Usuario> ObtenerUsuarios() => ColeccionDesdeTabla();
+
+
+        public Usuario? TraerUsuario(Usuario usuario)
+        {
+            SetComandoSP("TraerUsuario");
+
+            BP.CrearParametro("unaContrasenia")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt32)
+            .SetValor(usuario.Contrasenia)
+            .AgregarParametro();
+
+            BP.CrearParametro("unEmail")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt32)
+            .SetValor(usuario.Email)
+            .AgregarParametro();
+
+            public List<> Obtener()=> ElementoDesdeSP();
+        }
+
+
 
     }
 

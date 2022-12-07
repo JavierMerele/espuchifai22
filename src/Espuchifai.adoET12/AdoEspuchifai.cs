@@ -10,6 +10,8 @@ public class AdoEspuchifai
     public MapAlbum MapAlbum { get; set; }
     public MapCancion MapCancion { get; set; }
     public MapUsuario MapUsuario { get; set; }
+
+    public MapReproducciones MapReproducciones { get; set; }
     public AdoEspuchifai(AdoAGBD ado)
     {
         Ado = ado;
@@ -17,6 +19,7 @@ public class AdoEspuchifai
         MapAlbum = new MapAlbum(Ado);
         MapCancion = new MapCancion(Ado);
         MapUsuario = new MapUsuario(Ado);
+        MapReproducciones = new MapReproducciones(Ado);
     }
     public void AltaBanda(Banda banda) => MapBanda.AltaBanda(banda);
     public List<Banda> ObtenerBandas() => MapBanda.ColeccionDesdeTabla();
@@ -30,4 +33,7 @@ public class AdoEspuchifai
 
     public void AltaUsuario(Usuario usuario) => MapUsuario.AltaUsuario(usuario);
     public List<Usuario> ObtenerUsuarios() => MapUsuario.ColeccionDesdeTabla();
+
+    public void AltaReproduccion(Reproducciones reproducciones) => MapReproducciones.AltaReproduccion(reproducciones);
+    public List<Reproducciones> ObtenerReproduccion() => MapReproducciones.ColeccionDesdeTabla();
 }

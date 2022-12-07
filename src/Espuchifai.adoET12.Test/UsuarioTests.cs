@@ -17,5 +17,13 @@ using et12.edu.ar.AGBD.Ado;
                 Ado.AltaUsuario(usuario);
                 Assert.Equal((uint)2, usuario.IdUsuario);
             }
+
+            [Theory]
+        [InlineData(2, "")]
+        public void TraerUsuarios(char contrasenia, string email)
+        {
+            var usuarios = Ado.ObtenerUsuarios();
+            Assert.Contains(usuarios, x => x.IdUsuario == id && x.Nombre == nombre);
+        }
         }
 }
