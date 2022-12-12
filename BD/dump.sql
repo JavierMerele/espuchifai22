@@ -25,11 +25,11 @@ CALL
         'Gutierrez',
         'gutierreez01@gmail.com',
         'Estrellas28',
-        58
+        @idValen
     );
 
-CALL Reproducir (now(), @idWhatdoyouformonneyhoney, 58);
+CALL Reproducir (@Reproduccion, @idWhatdoyouformonneyhoney, @idValen);
 
-CALL Reproducir (now(),@idRockRollDamnation,58);
+CALL Reproducir (@Reproduccion,@idRockRollDamnation,@idValen);
 
-CALL Reproducir (now(),@GimmeaBullet,58);
+CALL Reproducir (@Reproduccion,@GimmeaBullet,@idValen);

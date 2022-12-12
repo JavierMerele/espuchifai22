@@ -1,17 +1,17 @@
+-- Active: 1646654372192@@127.0.0.1@3306@espuchifai
 USE Espuchifai ;
 
 SELECT 'Triggers' Estado ;
 
-delimiter $$
+
 
 /* 1) Cada vez que se inserta una reproducción, se incrementa el contador de reproducciones de la canción en uno.*/
 
-DROP TRIGGER
-    IF EXISTS AftInsReproduccion $$
-CREATE TRIGGER
-    AftInsReproduccion AFTER
-INSERT
-    ON Reproduccion FOR EACH ROW BEGIN
+DELIMITER $$
+
+DROP TRIGGER IF EXISTS AftInsReproduccion $$
+CREATE TRIGGER AftInsReproduccion AFTER
+INSERT ON Reproduccion FOR EACH ROW BEGIN
 UPDATE Cancion
 SET cantidad = cantidad + 1
 WHERE idCancion = new.idCancion;
@@ -22,12 +22,9 @@ END $$
 
 DELIMITER $$
 
-DROP TRIGGER
-    IF EXISTS AftUpdReproduccion $$
-CREATE TRIGGER
-    AftUpdReproduccion AFTER
-UPDATE
-    ON Cancion FOR EACH ROW BEGIN IF (NEW.cantidad > OLD.cantidad) THEN
+DROP TRIGGER IF EXISTS AftUpdReproduccion $$
+CREATE TRIGGER AftUpdReproduccion AFTER
+UPDATE ON Cancion FOR EACH ROW BEGIN IF (NEW.cantidad > OLD.cantidad) THEN
 UPDATE Album
 SET cantidad = cantidad + 1
 WHERE idAlbum = new.idAlbum;
