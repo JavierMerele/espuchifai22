@@ -18,8 +18,7 @@ namespace Espuchifai.adoET12.Test
             Assert.Equal((uint)2, usuario.IdUsuario);
         }
 
-        [Theory]
-        [InlineData(2, "")]
+        [Fact]
         public void TraerUsuarios(string contrasenia, string email)
         {
             var usuarios = Ado.ObtenerUsuarios();
