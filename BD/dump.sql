@@ -28,8 +28,8 @@ CALL
         @idValen
     );
 
-CALL Reproducir (@Reproduccion, @idWhatdoyouformonneyhoney, @idValen);
+CALL Reproducir (now(), @idWhatdoyouformonneyhoney, @idValen);
 
-CALL Reproducir (@Reproduccion,@idRockRollDamnation,@idValen);
+CALL Reproducir (now(),@idRockRollDamnation,@idValen);
 
-CALL Reproducir (@Reproduccion,@GimmeaBullet,@idValen);
+CALL Reproducir (now(),@GimmeaBullet,@idValen);

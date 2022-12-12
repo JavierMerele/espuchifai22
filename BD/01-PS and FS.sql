@@ -41,10 +41,11 @@ END $$
 DELIMITER $$
 
 DROP PROCEDURE IF EXISTS Reproducir $$
-CREATE PROCEDURE Reproducir (OUT unareproduccion DATETIME, unidCancion INT UNSIGNED,unidUsuario SMALLINT UNSIGNED) 
+CREATE PROCEDURE Reproducir (unareproduccion DATETIME, unidCancion INT UNSIGNED,unidUsuario SMALLINT UNSIGNED) 
 BEGIN
 INSERT INTO Reproduccion (reproduccion,idCancion,idUsuario)
             VALUES (unareproduccion,unidCancion,unidUsuario);
+
 
 END $$
 
@@ -61,6 +62,8 @@ CREATE PROCEDURE registrarCliente   (unNombre VARCHAR(45),
 BEGIN
 INSERT INTO Usuario (nombre,apellido,email,contrasenia,idUsuario)
             VALUES (unNombre, unApellido, unEmail, SHA2(unaContrasenia, 256), unidUsuario);
+
+SET unidUsuario = LAST_INSERT_ID();
 END$$
 DELIMITER $$
 
