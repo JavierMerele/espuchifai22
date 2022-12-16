@@ -31,9 +31,9 @@ public class AdoEspuchifai
 
     public List<Cancion> ObtenerCancion() => MapCancion.ColeccionDesdeTabla();
 
-    public void AltaUsuario(Usuario usuario) => MapUsuario.AltaUsuario(usuario);
+    public void registrarCliente(Usuario usuario) => MapUsuario.registrarCliente(usuario);
     public List<Usuario> ObtenerUsuarios() => MapUsuario.ColeccionDesdeTabla();
 
-    public void AltaReproduccion(Reproducciones reproducciones) => MapReproducciones.AltaReproduccion(reproducciones);
+    public void Reproducir(Reproducciones reproducciones) => MapReproducciones.Reproducir(reproducciones);
     public List<Reproducciones> ObtenerReproduccion() => MapReproducciones.ColeccionDesdeTabla();
 }

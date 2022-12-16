@@ -18,16 +18,16 @@ public class MapReproducciones : Mapeador<Reproducciones>
             reproduccion: Convert.ToDateTime(fila["Reproduccion"])
         );
 
-    public void AltaReproduccion(Reproducciones reproducciones)
-            => EjecutarComandoCon("altaReproduccion", ConfigurarAltaReproduccion, reproducciones);
+    public void Reproducir(Reproducciones reproducciones)
+            => EjecutarComandoCon("reproducir", ConfigurarReproducir, reproducciones);
 
 
-    public void ConfigurarAltaReproduccion(Reproducciones reproducciones)
+    public void ConfigurarReproducir(Reproducciones reproducciones)
     {
-        SetComandoSP("altaReproduccion");
+        SetComandoSP("reproducir");
 
-        BP.CrearParametro("unaReproduccion")
-        .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt32)
+        BP.CrearParametroSalida("unaReproduccion")
+        .SetTipo(MySql.Data.MySqlClient.MySqlDbType.DateTime)
         .AgregarParametro();
 
         BP.CrearParametro("unidUsuario")

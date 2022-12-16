@@ -13,18 +13,18 @@ namespace Espuchifai.adoET12.Test
         
 
         [Fact]
-        public void AltaReproduccion()
+        public void Reproducir()
         {
-            var reproducciones = new Reproducciones(new DateTime(2022, 1, 23),1,0);
-            Ado.AltaReproduccion(reproducciones);
-            Assert.Equal((uint)7, reproducciones.IdCancion);
+            var reproducciones = new Reproducciones(new DateTime(2022, 1, 23),1,2);
+            Ado.Reproducir(reproducciones);
+            Assert.Equal((uint)1, reproducciones.IdCancion);
         }
 
         [Fact]
-        public void ObtenerReproduccion(byte id, DateTime reproduccion)
+        public void ObtenerReproduccion()
         {
             var canciones = Ado.ObtenerReproduccion();
-            Assert.Contains(canciones, x => x.IdCancion == id && x.Reproduccion == reproduccion);
+            Assert.Contains(canciones, x => x.IdCancion == (1) && x.Reproduccion == (new DateTime(2022, 1, 23)));
         }
 
 

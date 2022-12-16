@@ -20,39 +20,39 @@ namespace Espuchifai.AdoMySQL.Mapeadores
                 contrasenia: fila["contrasenia"].ToString()!,
                 email: fila["email"].ToString()!
             );
-        public void AltaUsuario(Usuario usuario)
-                => EjecutarComandoCon("altaUsuario", ConfigurarAltaUsuario, postAltaUsuario, usuario);
+        public void registrarCliente(Usuario usuario)
+                => EjecutarComandoCon("registrarCliente", ConfigurarRegistrarCliente, postRegistrarCliente, usuario);
 
-        public void ConfigurarAltaUsuario(Usuario usuario)
+        public void ConfigurarRegistrarCliente(Usuario usuario)
         {
-            SetComandoSP("altaUsuario");
+            SetComandoSP("registrarCliente");
 
-            BP.CrearParametro("unidUsuario")
+            BP.CrearParametroSalida("unidUsuario")
             .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt32)
             .AgregarParametro();
 
             BP.CrearParametro("unNombre")
-            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt32)
+            .SetTipoVarchar(45)
             .SetValor(usuario.Nombre)
             .AgregarParametro();
 
             BP.CrearParametro("unApellido")
-            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt32)
+            .SetTipoVarchar(45)
             .SetValor(usuario.Apellido)
             .AgregarParametro();
 
             BP.CrearParametro("unaContrasenia")
-            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt32)
+            .SetTipoVarchar(45)
             .SetValor(usuario.Contrasenia)
             .AgregarParametro();
 
             BP.CrearParametro("unEmail")
-            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt32)
+            .SetTipoVarchar(45)
             .SetValor(usuario.Email)
             .AgregarParametro();
 
         }
-        public void postAltaUsuario(Usuario usuario)
+        public void postRegistrarCliente(Usuario usuario)
         {
             var paramiUsuario = GetParametro("unidUsuario");
             usuario.IdUsuario = Convert.ToUInt32(paramiUsuario.Value);
