@@ -8,7 +8,7 @@ public class MapReproducciones : Mapeador<Reproducciones>
 {
     public MapReproducciones(AdoAGBD ado) : base(ado)
     {
-        Tabla = "Reproducciones";
+        Tabla = "Reproduccion";
     }
     public override Reproducciones ObjetoDesdeFila(DataRow fila)
         => new Reproducciones

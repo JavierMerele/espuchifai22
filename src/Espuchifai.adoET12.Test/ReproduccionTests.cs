@@ -24,9 +24,8 @@ namespace Espuchifai.adoET12.Test
         public void ObtenerReproduccion()
         {
             var canciones = Ado.ObtenerReproduccion();
-            Assert.Contains(canciones, x => x.IdCancion == (1) && x.Reproduccion == (new DateTime(2022, 1, 23)));
+            Assert.Contains(canciones, x => x.IdCancion == 3 && x.IdUsuario == 1 );
         }
-
 
     }
 }

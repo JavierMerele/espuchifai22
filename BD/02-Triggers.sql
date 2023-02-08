@@ -12,9 +12,10 @@ DELIMITER $$
 DROP TRIGGER IF EXISTS AftInsReproduccion $$
 CREATE TRIGGER AftInsReproduccion AFTER
 INSERT ON Reproduccion FOR EACH ROW BEGIN
-UPDATE Cancion
-SET cantidad = cantidad + 1
-WHERE idCancion = new.idCancion;
+
+    UPDATE Cancion
+    SET cantidad = cantidad + 1
+    WHERE idCancion = new.idCancion;
 
 END $$
 
