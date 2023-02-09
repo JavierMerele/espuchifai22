@@ -24,7 +24,7 @@ namespace Espuchifai.adoET12.Test
         public void TraerUsuarios()
         {
             var usuarios = Ado.ObtenerUsuarios();
-            Assert.Contains(usuarios, x => x.Contrasenia == ("4444") && x.Email == ("pepe@pepita"));
+            Assert.Contains(usuarios, x => x.Contrasenia == ("6de757d63f193012e00d9312887012f6bf8ed2d7c6618dffb3cfb60e7f9b5e4a") && x.Email == ("gutierreez01@gmail.com"));
         }
     }
 }

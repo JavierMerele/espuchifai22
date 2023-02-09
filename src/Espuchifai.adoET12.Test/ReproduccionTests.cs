@@ -10,12 +10,12 @@ namespace Espuchifai.adoET12.Test
             var adoAGBD = FactoryAdoAGBD.GetAdoMySQL("appSettings.json", "test");
             Ado = new(adoAGBD);
         }
-        
+
 
         [Fact]
         public void Reproducir()
         {
-            var reproducciones = new Reproducciones(new DateTime(2022, 1, 23),1,2);
+            var reproducciones = new Reproducciones(new DateTime(2022, 1, 23), 1, 2);
             Ado.Reproducir(reproducciones);
             Assert.Equal((uint)1, reproducciones.IdCancion);
         }
@@ -24,7 +24,7 @@ namespace Espuchifai.adoET12.Test
         public void ObtenerReproduccion()
         {
             var canciones = Ado.ObtenerReproduccion();
-            Assert.Contains(canciones, x => x.IdCancion == 3 && x.IdUsuario == 1 );
+            Assert.Contains(canciones, x => x.IdCancion == 3 && x.IdUsuario == 1);
         }
 
     }

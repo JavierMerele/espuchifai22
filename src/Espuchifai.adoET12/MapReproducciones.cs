@@ -26,8 +26,9 @@ public class MapReproducciones : Mapeador<Reproducciones>
     {
         SetComandoSP("reproducir");
 
-        BP.CrearParametroSalida("unaReproduccion")
+        BP.CrearParametro("unaReproduccion")
         .SetTipo(MySql.Data.MySqlClient.MySqlDbType.DateTime)
+        .SetValor(reproducciones.Reproduccion)
         .AgregarParametro();
 
         BP.CrearParametro("unidUsuario")
