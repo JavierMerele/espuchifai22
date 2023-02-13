@@ -24,6 +24,7 @@ namespace Espuchifai.adoET12.Test
 
         [Theory]
         [InlineData(1, "Back in Black")]
+        [InlineData(2, "powerage")]
         public void TraerAlbunes(byte id, string nombre)
         {
             var album = Ado.ObtenerAlbum();
