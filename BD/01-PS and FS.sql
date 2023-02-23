@@ -68,7 +68,7 @@ END$$
 DELIMITER $$
 
 DROP PROCEDURE IF EXISTS ObtenerUsuarios $$
-CREATE PROCEDURE ObtenerUsuarios(contrasenia CHAR(64),email VARCHAR(45))
+CREATE PROCEDURE ObtenerUsuarios(unacontrasenia CHAR(64),unEmail VARCHAR(45))
 BEGIN
 
     SELECT u.email,u.nombre,u.apellido,u.idUsuario
