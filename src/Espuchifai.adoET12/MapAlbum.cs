@@ -23,6 +23,8 @@ namespace Espuchifai.AdoMySQL.Mapeadores
 
         public void AltaAlbum(Album album)
             => EjecutarComandoCon("altaAlbum", ConfigurarAltaAlbum, postAltaAlbum, album);
+        public async Task AltaAlbumAsync(Album album)
+            => await EjecutarComandoAsync ("AltaAlbum",ConfigurarAltaAlbum, postAltaAlbum , album);
 
         public void ConfigurarAltaAlbum(Album album)
         {

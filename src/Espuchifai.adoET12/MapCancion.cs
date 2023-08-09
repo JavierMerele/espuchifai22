@@ -23,6 +23,9 @@ namespace Espuchifai.AdoMySQL.Mapeadores
 
         public void AltaCancion(Cancion cancion)
             => EjecutarComandoCon("altaCancion", ConfigurarAltaCancion, postAltaCancion, cancion);
+        
+        public async Task AltaCancionAsync(Cancion cancion)
+            => await EjecutarComandoAsync ("AltaCancion",ConfigurarAltaCancion, postAltaCancion , cancion);
 
 
         public void ConfigurarAltaCancion(Cancion cancion)

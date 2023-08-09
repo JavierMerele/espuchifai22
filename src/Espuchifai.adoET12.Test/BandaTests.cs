@@ -28,4 +28,12 @@ public class BandaTests
         var banda = Ado.ObtenerBandas();
         Assert.Contains(banda, x => x.IdBanda == id && x.Nombre == nombre);
     }
+
+    [Fact]
+    public async void AltaBandaAsync()
+    {
+        var banda = new Banda("QUEEN", 1980, idBanda: 2);
+        await Ado.AltaBandaAsync(banda);
+        Assert.Equal((uint)2, banda.IdBanda);
+    }
 }

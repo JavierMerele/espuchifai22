@@ -20,6 +20,8 @@ public class MapReproducciones : Mapeador<Reproducciones>
 
     public void Reproducir(Reproducciones reproducciones)
             => EjecutarComandoCon("reproducir", ConfigurarReproducir, reproducciones);
+    public async Task ReproducirAsync(Reproducciones reproducciones)
+            => await EjecutarComandoAsync ("reproducir",ConfigurarReproducir, reproducciones);
 
 
     public void ConfigurarReproducir(Reproducciones reproducciones)

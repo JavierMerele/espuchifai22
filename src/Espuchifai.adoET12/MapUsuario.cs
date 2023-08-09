@@ -22,6 +22,8 @@ namespace Espuchifai.AdoMySQL.Mapeadores
             );
         public void registrarCliente(Usuario usuario)
                 => EjecutarComandoCon("registrarCliente", ConfigurarRegistrarCliente, postRegistrarCliente, usuario);
+        public async Task RegistrarClienteAsync(Usuario usuario)
+                => await EjecutarComandoAsync ("registrarCliente",ConfigurarRegistrarCliente, postRegistrarCliente ,usuario);
 
         public void ConfigurarRegistrarCliente(Usuario usuario)
         {
