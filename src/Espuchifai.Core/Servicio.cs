@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using Espuchifai.Core;
 
 namespace Espuchifai.adoET12;
@@ -8,6 +9,12 @@ public class Servicio
     public Servicio(IAdo ado) => this.ado = ado;
     void AltaBanda(Banda banda)
     {
+        ValidarBanda(banda);
+        ado.AltaBanda(banda);
+    }
+
+    private static void ValidarBanda(Banda banda)
+    {
         if (string.IsNullOrEmpty(banda.Nombre))
         {
             throw new ArgumentException("Nombre no valido");
@@ -16,53 +23,71 @@ public class Servicio
         {
             throw new ArgumentException("Fundacion no valido");
         }
-        if (banda.IdBanda !=0)
+        if (banda.IdBanda != 0)
         {
             throw new ArgumentException("IdBanda no valido");
         }
     }
-    Task AltaBandaAsync(Banda banda);
+
+    async Task AltaBandaAsync(Banda banda)
+    {
+        ValidarBanda(banda);
+        await ado.AltaBandaAsync(banda);
+    }
     List<Banda> ObtenerBandas();
     Task<List<Banda>> ObtenerBandaAsync();
 
 
-    void AltaAlbum(Album album);
-    Task AltaAlbumAsync(Album album);
-    List<Album> ObtenerAlbum();
-    Task<List<Album>> ObtenerAlbumAsync();
-
     void AltaAlbum(Album album)
+    {
+        ValidarAlbum(album);
+        ado.AltaAlbum(album);
+    }
+
+    private void ValidarAlbum(Album album)
     {
         if (string.IsNullOrEmpty(album.Nombre))
         {
             throw new ArgumentException("Nombre no valido");
         }
-        if ()
+        if (album.Lanzamiento == null)
         {
-            
+            throw new ArgumentException("Lanzamiento no valido");
         }
         if (album.IdBanda != 0)
         {
-            throw new ArgumentException ("IdBanda no valido");
+            throw new ArgumentException("IdBanda no valido");
         }
         if (album.IdAlbum != 0)
         {
-            throw new ArgumentException ("idAlbum no valido");
+            throw new ArgumentException("idAlbum no valido");
         }
         if (album.Cantidad <= 0)
         {
-            throw new ArgumentException ("Cantidad no valido");
+            throw new ArgumentException("Cantidad no valido");
         }
-
+        
     }
 
+    async Task AltaAlbumAsync(Album album)
+    {
+        ValidarAlbum(album);
+        await ado.AltaAlbumAsync(album);
+    }
 
-    void AltaCancion(Cancion cancion);
-    Task AltaCancionAsync(Cancion cancion);
-    List<Cancion> ObtenerCancion();
-    Task<List<Cancion>> ObtenerCancionAsync();
+    List<Album> ObtenerAlbum();
+    Task<List<Album>> ObtenerAlbumAsync();
+
+
+
 
     void AltaCancion(Cancion cancion)
+    {
+        ValidarCancion(cancion);
+        ado.AltaCancion(cancion);
+    }
+
+    private void ValidarCancion(Cancion cancion)
     {
         if (string.IsNullOrEmpty(cancion.Nombre))
         {
@@ -70,56 +95,98 @@ public class Servicio
         }
         if (cancion.Orden <= 0)
         {
-            throw new ArgumentException ("Orden no valida");
+            throw new ArgumentException("Orden no valida");
         }
         if (cancion.IdAlbum != 0)
         {
-            throw new ArgumentException ("idAlbum no valido");
+            throw new ArgumentException("idAlbum no valido");
         }
         if (cancion.IdCancion != 0)
         {
-            throw new ArgumentException ("idCancion no valida");
+            throw new ArgumentException("idCancion no valida");
         }
-        if (cancion.Cantidad < 0)
+        if (cancion.Cantidad <= 0)
         {
-            throw new ArgumentException ("Cantidad no valida");
+            throw new ArgumentException("Cantidad no valida");
         }
+    }
+
+    async Task AltaCancionAsync(Cancion cancion)
+    {
+        ValidarCancion(cancion);
+        await ado.AltaCancionAsync(cancion);
+    }
+    List<Cancion> ObtenerCancion();
+    Task<List<Cancion>> ObtenerCancionAsync();
 
 
-
-    void Reproducir(Reproducciones reproduccion);
-    Task AltaReproducirAsync(Reproducciones reproduccion);
-    List<Reproducciones> ObtenerReproduccion();
-    Task<List<Reproducciones>> ObtenerReproduccionAsync();
 
     void AltaReproducir(Reproducciones reproducciones)
-
     {
-        if (true)
+        ValidadReproduccion(reproducciones);
+        ado.Reproducir(reproducciones);
+    }
+
+    private void ValidadReproduccion(Reproducciones reproducciones)
+    {
+        if (reproducciones.Reproduccion == null)
         {
-            
+            throw new ArgumentException("Reproduccion no valido ");
         }
         if (reproducciones.IdUsuario == 0)
         {
-            throw new ArgumentException ("IdUsuario invalido");
+            throw new ArgumentException("IdUsuario no valido");
         }
         if (reproducciones.IdCancion == 0)
         {
-            throw new ArgumentException ("IdCancion no valido ");
+            throw new ArgumentException("IdCancion no valido ");
         }
     }
-        
-    
+    async Task AltaReproducirAsync (Reproducciones reproducciones)
+    {
+        ValidadReproduccion(reproducciones);
+        await ado.AltaReproducirAsync(reproducciones);
+    }
+    List<Reproducciones> ObtenerReproduccion();
+    Task<List<Reproducciones>> ObtenerReproduccionAsync();
 
 
+    void registrarCliente (Usuario usuario)
+    {
+        ValidarUsuario(usuario);
+        ado.registrarCliente(usuario);
+    }
 
+    private void ValidarUsuario(Usuario usuario)
+    {
+        if (string.IsNullOrEmpty(usuario.Nombre))
+        {
+            throw new ArgumentException("Nombre no valido");
+        }
+        if (string.IsNullOrEmpty(usuario.Apellido))
+        {
+            throw new ArgumentException("Apellido no valido");
+        }
+        if (string.IsNullOrEmpty(usuario.Email))
+        {
+            throw new ArgumentException("Email no valido");
+        }
+        if (string.IsNullOrEmpty(usuario.Contrasenia))
+        {
+            throw new ArgumentException("Contraseña no valido");
+        }
+        if (usuario.IdUsuario == 0)
+        {
+            throw new ArgumentException("IdUsuario no valido");
+        }
+    }
 
-
-    void registrarCliente(Usuario usuario);
-    Task AltaregistrarClienteAsync(Usuario usuario);
+    async Task AltaregistrarClienteAsync (Usuario usuario)
+    {
+        ValidarUsuario(usuario);
+        await ado.AltaregistrarClienteAsync(usuario);
+    }
     List<Usuario> ObtenerUsuarios();
     Task<List<Usuario>> ObtenerUsuarioAsync();
-
-    void Alta
 
 }
