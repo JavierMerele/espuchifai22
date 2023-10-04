@@ -1,3 +1,4 @@
+using System.Reflection.Metadata.Ecma335;
 using System.Runtime.CompilerServices;
 using Espuchifai.Core;
 
@@ -7,7 +8,7 @@ public class Servicio
     public IAdo ado { get; set; }
 
     public Servicio(IAdo ado) => this.ado = ado;
-    void AltaBanda(Banda banda)
+    public void AltaBanda(Banda banda)
     {
         ValidarBanda(banda);
         ado.AltaBanda(banda);
@@ -34,11 +35,13 @@ public class Servicio
         ValidarBanda(banda);
         await ado.AltaBandaAsync(banda);
     }
-    List<Banda> ObtenerBandas();
-    Task<List<Banda>> ObtenerBandaAsync();
+    List<Banda> ObtenerBandas() => ado.ObtenerBandas();
+    
+    async Task<List<Banda>> ObtenerBandaAsync() => await ado.ObtenerBandaAsync();
 
 
-    void AltaAlbum(Album album)
+
+    public void AltaAlbum(Album album)
     {
         ValidarAlbum(album);
         ado.AltaAlbum(album);
@@ -50,7 +53,7 @@ public class Servicio
         {
             throw new ArgumentException("Nombre no valido");
         }
-        if (album.Lanzamiento == null)
+        if (album.Lanzamiento > DateTime.Now)
         {
             throw new ArgumentException("Lanzamiento no valido");
         }
@@ -75,13 +78,13 @@ public class Servicio
         await ado.AltaAlbumAsync(album);
     }
 
-    List<Album> ObtenerAlbum();
-    Task<List<Album>> ObtenerAlbumAsync();
+    List<Album> ObtenerAlbum() => ado.ObtenerAlbum();
+    async Task<List<Album>> ObtenerAlbumAsync() => await ado.ObtenerAlbumAsync();
 
 
 
 
-    void AltaCancion(Cancion cancion)
+    public void AltaCancion(Cancion cancion)
     {
         ValidarCancion(cancion);
         ado.AltaCancion(cancion);
@@ -116,12 +119,12 @@ public class Servicio
         ValidarCancion(cancion);
         await ado.AltaCancionAsync(cancion);
     }
-    List<Cancion> ObtenerCancion();
-    Task<List<Cancion>> ObtenerCancionAsync();
+    List<Cancion> ObtenerCancion() => ado.ObtenerCancion();
+    async Task<List<Cancion>> ObtenerCancionAsync() => await ObtenerCancionAsync();
 
 
 
-    void AltaReproducir(Reproducciones reproducciones)
+    public void AltaReproducir(Reproducciones reproducciones)
     {
         ValidadReproduccion(reproducciones);
         ado.Reproducir(reproducciones);
@@ -129,9 +132,9 @@ public class Servicio
 
     private void ValidadReproduccion(Reproducciones reproducciones)
     {
-        if (reproducciones.Reproduccion == null)
+        if (reproducciones.Reproduccion > DateTime.Now)
         {
-            throw new ArgumentException("Reproduccion no valido ");
+            throw new ArgumentException("Reproduccion no valido");
         }
         if (reproducciones.IdUsuario == 0)
         {
@@ -147,11 +150,11 @@ public class Servicio
         ValidadReproduccion(reproducciones);
         await ado.AltaReproducirAsync(reproducciones);
     }
-    List<Reproducciones> ObtenerReproduccion();
-    Task<List<Reproducciones>> ObtenerReproduccionAsync();
+    List<Reproducciones> ObtenerReproduccion() => ado.ObtenerReproduccion();
+    async Task<List<Reproducciones>> ObtenerReproduccionAsync() => await ado.ObtenerReproduccionAsync();
 
 
-    void registrarCliente (Usuario usuario)
+    public void registrarCliente (Usuario usuario)
     {
         ValidarUsuario(usuario);
         ado.registrarCliente(usuario);
@@ -186,7 +189,7 @@ public class Servicio
         ValidarUsuario(usuario);
         await ado.AltaregistrarClienteAsync(usuario);
     }
-    List<Usuario> ObtenerUsuarios();
-    Task<List<Usuario>> ObtenerUsuarioAsync();
+    List<Usuario> ObtenerUsuarios() => ado.ObtenerUsuarios();
+    async Task<List<Usuario>> ObtenerUsuarioAsync() => await ado.ObtenerUsuarioAsync();
 
 }
