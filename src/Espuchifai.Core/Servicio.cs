@@ -191,5 +191,6 @@ public class Servicio
     }
     List<Usuario> ObtenerUsuarios() => ado.ObtenerUsuarios();
     async Task<List<Usuario>> ObtenerUsuarioAsync() => await ado.ObtenerUsuarioAsync();
+    
 
 }
