@@ -1,4 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
+  <ItemGroup>
+    <ProjectReference Include="..\Espuchifai.Core\Espuchifai.Core.csproj" />
+    <ProjectReference Include="..\Espuchifai.adoET12\Espuchifai.adoET12.csproj" />
+  </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>

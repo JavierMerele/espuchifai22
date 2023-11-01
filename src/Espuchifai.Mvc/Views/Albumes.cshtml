@@ -1,25 +1,12 @@
-@page
-@model Espuchifai.Mvc.Views.Albumes
+@using Espuchifai.Core;
+@model IEnumerable<Album>
 @{
     ViewData["Title"] = "Albumes";
 }
-
-<h1>@ViewData["Title"]</h1>
-
-<div>
-    <html>
-        <meta charset="UTF-8">
-        <title>Albumes Espuchifai</title>
-        <meta name="keywords" content="Canciones, Artistas, Albumes, Espuchifai">
-    </head>
-<body>
-    <h1> Albumes Disponibles </h1><br>
-    <ul>
-        <li> Un verano sin ti </li>
-        <li> X100 PRE </li>
-        <li> El ultimo tour del mundo </li>
-<style>
-body {
-background-color: #8ae4c9;
-}
-</div>
+<h1> Albumes Disponibles </h1><br>
+<ul>
+    @foreach (var album in Model)
+    {
+        <li><a asp-controller="Album" asp-action="Detalle" asp-route-id="IdAlbum">album.Nombre</a></li>
+    }
+</ul>
