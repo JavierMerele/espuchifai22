@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Albumes";
 }
+
 <h1> Albumes Disponibles </h1><br>
 <ul>
     @foreach (var album in Model)
@@ -10,3 +11,8 @@
         <li><a asp-controller="Album" asp-action="Detalle" asp-route-id="IdAlbum">album.Nombre</a></li>
     }
 </ul>
+<style>
+body {
+background-color: #8ae4c9;
+}
+</div>

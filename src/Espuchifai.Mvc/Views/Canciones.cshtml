@@ -3,21 +3,13 @@
 @{
     ViewData["Title"] = "Canciones";
 }
-
-<h1>@ViewData["Title"]</h1>
-
-<div>
-    <html>
-        <meta charset="UTF-8">
-        <title> Canciones Espuchifai </title>
-        <meta name="keywords" content="Canciones, Artistas, Albumes, Espuchifai">
-    </head>
-<body>
-    <h1> Canciones Disponibles </h1><br>
-    <ul>
-        <li> Un verano sin ti </li>
-        <li>X100 PRE </li>
-        <li>El ultimo tour del mundo </li>
+<h1> Canciones Disponibles </h1><br>
+<ul>
+    @foreach (var Cancion in Model)
+    {
+        <li><a asp-controller="Canciones" asp-action="Detalle" asp-route-id="IdCancion">Cancion.Nombre</a></li>
+    }
+</ul>
 <style>
 body {
 background-color: #8ae4c9;
