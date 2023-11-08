@@ -1,10 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+using Espuchifai.Core;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+
 
 namespace Espuchifai.Mvc.Controllers
 {
@@ -20,13 +16,12 @@ namespace Espuchifai.Mvc.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var albumes = new List<Album>
+            {
+                new Album("Un Verano sin ti", new DateTime(2022, 1, 24), idBanda:0, idAlbum:0, cantidad: 1)
+            };
         }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View("Error!");
-        }
+        [HttpGet]
+        public IActionResult Alta() => View();
     }
 }

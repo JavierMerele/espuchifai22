@@ -1,10 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+
+using Espuchifai.Core;
+using Espuchifai.Mvc.Views;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace Espuchifai.Mvc.Controllers
 {
@@ -20,13 +17,12 @@ namespace Espuchifai.Mvc.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var canciones = new List<Cancion>
+            {
+                new Cancion("Shape of You", orden: 1, idAlbum: 2, idCancion: 1, cantidad: 2)
+            };
         }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View("Error!");
-        }
+        [HttpGet]
+        public IActionResult Alta() => View();
     }
 }
