@@ -21,6 +21,7 @@ namespace Espuchifai.Mvc.Controllers
             {
                 new Cancion("Shape of You", orden: 1, idAlbum: 2, idCancion: 1, cantidad: 2)
             };
+        return View(canciones);
         }
         [HttpGet]
         public IActionResult Alta() => View();

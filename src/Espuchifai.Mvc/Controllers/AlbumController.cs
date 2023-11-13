@@ -20,8 +20,13 @@ namespace Espuchifai.Mvc.Controllers
             {
                 new Album("Un Verano sin ti", new DateTime(2022, 1, 24), idBanda:0, idAlbum:0, cantidad: 1)
             };
+        return View(albumes);
         }
         [HttpGet]
         public IActionResult Alta() => View();
+        
+        [HttpPost]
+
+
     }
 }

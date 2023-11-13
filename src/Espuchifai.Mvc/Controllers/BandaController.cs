@@ -21,9 +21,15 @@ namespace Espuchifai.Mvc.Controllers
             {
                 new Banda("QUEEN", 1980, idBanda: 2) 
             };
+        return View(bandas);
         }
         [HttpGet]
         public IActionResult Alta () =>View();
 
+        [HttpPost]
+    
+    {
+        
+    }
     }
 }
