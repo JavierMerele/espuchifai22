@@ -25,5 +25,6 @@ namespace Espuchifai.Mvc.Controllers
         }
         [HttpGet]
         public IActionResult Alta() => View();
+
     }
 }

@@ -19,16 +19,15 @@ public class VMAlbum
     {
         bandas = new SelectList(bandas,
                                 dataTextField: nameof(Banda.Nombre),
-                                dataValueField: nameof(Banda.IdBanda);
+                                dataValueField: nameof(Banda.IdBanda));
     }
-    public VMAlbum(IEnumerable<Banda> bandas)
+    public VMAlbum(IEnumerable<Banda> bandas, Album album)
     {
         bandas = new SelectList(bandas,
                                 dataTextField: nameof(Banda.Nombre),
-                                dataValueField: nameof(Banda.IdBanda),
-                                selectedValue: Album.idBanda)
-        Nombre = Album.nombre;
-        
+                                dataValueField: nameof(Banda.IdBanda));
+        Nombre = album.Nombre;
+        Cantidad = album.IdBanda; 
     }
 
     

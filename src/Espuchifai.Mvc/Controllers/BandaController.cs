@@ -23,12 +23,6 @@ namespace Espuchifai.Mvc.Controllers
         return View(bandas);
         }
         [HttpGet]
-        public IActionResult Alta () =>View();
-
-        [HttpPost]
-        public ActionResult Post([FromBody] Views_Banda_Alta banda)
-        {
-            return NotFound()
-        }   
+        public IActionResult Alta () =>View(); 
     }
 }
