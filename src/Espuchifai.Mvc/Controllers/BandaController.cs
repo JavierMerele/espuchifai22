@@ -1,4 +1,3 @@
-
 using Espuchifai.Core;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,9 +26,9 @@ namespace Espuchifai.Mvc.Controllers
         public IActionResult Alta () =>View();
 
         [HttpPost]
-    
-    {
-        
-    }
+        public ActionResult Post([FromBody] Views_Banda_Alta banda)
+        {
+            return NotFound()
+        }   
     }
 }

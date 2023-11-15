@@ -1,3 +1,4 @@
+using Espuchifai.Core;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Espuchifai.Mvc.ViewModels;
@@ -6,9 +7,29 @@ public class VMAlbum
 {
     SelectList? Bandas;
     string? Canciones;
-    string Nombre {get; set}
+    string? Nombre { get; set;}
 
-    DatatimeLanzamiento { get; set; }
+    DateTime Lanzamiento { get; set; }
+    uint idAlbum { get; set; }
+    uint idBanda { get; set; }
+    uint Cantidad { get; set;}
+
+    public VMAlbum() {}
+    public VMAlbum (IEnumerable<Banda> bandas)
+    {
+        bandas = new SelectList(bandas,
+                                dataTextField: nameof(Banda.Nombre),
+                                dataValueField: nameof(Banda.IdBanda);
+    }
+    public VMAlbum(IEnumerable<Banda> bandas)
+    {
+        bandas = new SelectList(bandas,
+                                dataTextField: nameof(Banda.Nombre),
+                                dataValueField: nameof(Banda.IdBanda),
+                                selectedValue: Album.idBanda)
+        Nombre = Album.nombre;
+        
+    }
 
     
 }
