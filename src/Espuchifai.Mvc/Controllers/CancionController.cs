@@ -1,6 +1,6 @@
 
+using Espuchifai.adoET12;
 using Espuchifai.Core;
-using Espuchifai.Mvc.Views;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Espuchifai.Mvc.Controllers
@@ -8,20 +8,14 @@ namespace Espuchifai.Mvc.Controllers
     [Route("[controller]")]
     public class CancionController : Controller
     {
-        private readonly ILogger<CancionController> _logger;
+        private readonly Servicio _servicio;
 
-        public CancionController(ILogger<CancionController> logger)
-        {
-            _logger = logger;
-        }
+        public CancionController(Servicio servicio) => _servicio = servicio;
 
         public IActionResult Index()
         {
-            var canciones = new List<Cancion>
-            {
-                new Cancion("Shape of You", orden: 1, idAlbum: 2, idCancion: 1, cantidad: 2)
-            };
-        return View(canciones);
+            var canciones = _servicio.ObtenerCancion();
+            return View("Listado", canciones);
         }
         [HttpGet]
         public IActionResult Alta() => View();

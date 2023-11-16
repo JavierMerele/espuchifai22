@@ -1,0 +1,53 @@
+@using Espuchifai.Core;
+@model Cancion;
+@{
+    ViewData["Title"] = "AltaCancion";
+}
+<form asp-controller="Cancion" asp-action="AltaCancion" method="post">
+    <div asp-validation-summary="All"></div>
+    <div><input type="hidden" asp-for="IdCancion" /></div>
+            <div class="row g-3 align-items-center">
+        <div class="col-auto">
+            <label asp-for="Nombre" class="col-form-label">Nombre</label>
+        </div>
+                <div class="col-auto">
+            <input asp-for="Nombre" class="form-control" />
+        </div>
+        </div>
+                <div class="row g-3 align-items-center">
+        <div class="col-auto">
+            <label asp-for="Orden" class="col-form-label">Orden</label>
+        </div>
+        <div class="col-auto">
+            <input asp-for="Orden" class="form-control" />
+        </div>
+        </div> 
+                <div class="row g-3 align-items-center">
+        <div class="col-auto">
+            <label asp-for="IdAlbum" class="col-form-label">IdAlbum</label>
+        </div>
+        <div class="col-auto">
+            <input asp-for="IdAlbum" class="form-control" />
+        </div>
+        </div> 
+                <div class="row g-3 align-items-center">
+        <div class="col-auto">
+            <label asp-for="IdCancion" class="col-form-label">IdCancion</label>
+        </div>
+        <div class="col-auto">
+            <input asp-for="IdCancion" class="form-control" />
+        </div>
+        </div> 
+                <div class="row g-3 align-items-center">
+        <div class="col-auto">
+            <label asp-for="Cantidad" class="col-form-label">Cantidad</label>
+        </div>
+        <div class="col-auto">
+            <input asp-for="Cantidad" class="form-control" />
+        </div>
+        </div> 
+            <div class="row g-3 align-items-center">
+        <button type="submit" class="btn btn-primary">Alta</button>
+    </div>
+
+</form>

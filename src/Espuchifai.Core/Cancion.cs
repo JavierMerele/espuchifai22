@@ -1,5 +1,4 @@
 namespace Espuchifai.Core;
-
 public class Cancion
 {
     public string Nombre { get; set; }

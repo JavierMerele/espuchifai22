@@ -1,0 +1,38 @@
+@using Espuchifai.Core;
+@model Banda;
+@{
+    ViewData["Title"] = "Alta Banda";
+
+}
+<form asp-controller="Banda" asp-action="AltaBanda" method="post">
+    <div asp-validation-summary="All"></div>
+    <div><input type="hidden" asp-for="IdBanda" /></div>
+            <div class="row g-3 align-items-center">
+        <div class="col-auto">
+            <label asp-for="Nombre" class="col-form-label">Nombre</label>
+        </div>
+        <div class="col-auto">
+            <input asp-for="Nombre" class="form-control" />
+        </div>
+        </div>
+                <div class="row g-3 align-items-center">
+        <div class="col-auto">
+            <label asp-for="Fundacion" class="col-form-label">Fundacion</label>
+        </div>
+        <div class="col-auto">
+            <input asp-for="Fundacion" class="form-control" />
+        </div>
+        </div> 
+                <div class="row g-3 align-items-center">
+        <div class="col-auto">
+            <label asp-for="IdBanda" class="col-form-label">IdBanda</label>
+        </div>
+        <div class="col-auto">
+            <input asp-for="IdBanda" class="form-control" />
+        </div>
+        </div>
+    <div class="row g-3 align-items-center">
+        <button type="submit" class="btn btn-primary">Alta</button>
+    </div>
+
+</form>

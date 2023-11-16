@@ -35,7 +35,7 @@ public class Servicio
         ValidarBanda(banda);
         await ado.AltaBandaAsync(banda);
     }
-    List<Banda> ObtenerBandas() => ado.ObtenerBandas();
+    public List<Banda> ObtenerBandas() => ado.ObtenerBandas();
     
     async Task<List<Banda>> ObtenerBandaAsync() => await ado.ObtenerBandaAsync();
 
@@ -78,7 +78,7 @@ public class Servicio
         await ado.AltaAlbumAsync(album);
     }
 
-    List<Album> ObtenerAlbum() => ado.ObtenerAlbum();
+    public List<Album> ObtenerAlbum() => ado.ObtenerAlbum();
     async Task<List<Album>> ObtenerAlbumAsync() => await ado.ObtenerAlbumAsync();
 
 
@@ -119,7 +119,7 @@ public class Servicio
         ValidarCancion(cancion);
         await ado.AltaCancionAsync(cancion);
     }
-    List<Cancion> ObtenerCancion() => ado.ObtenerCancion();
+    public List<Cancion> ObtenerCancion() => ado.ObtenerCancion();
     async Task<List<Cancion>> ObtenerCancionAsync() => await ObtenerCancionAsync();
 
 
