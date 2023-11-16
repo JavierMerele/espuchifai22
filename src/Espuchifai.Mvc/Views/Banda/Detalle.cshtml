@@ -1,16 +1,11 @@
 @using Espuchifai.Core;
 @model IEnumerable<Banda>
 @{
-    ViewData["Title"] = "Banda";
+    ViewData["Title"] = "Banda - Detalle";
 }
+<h2>Descripcion</h2>
+<p>@Model.Descripcion</p>
 
-<h1> Albumes Disponibles </h1><br>
-<ul>
-    @foreach (var banda in Model)
-    {
-        <li><a asp-controller="Banda" asp-action="Detalle" asp-route-id="IdBanda">Banda.Nombre</a></li>
-    }
-</ul>
 <style>
 body {
 background-color: #8ae4c9;

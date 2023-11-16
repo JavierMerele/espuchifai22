@@ -37,7 +37,7 @@ public class Servicio
     }
     public List<Banda> ObtenerBandas() => ado.ObtenerBandas();
     
-    async Task<List<Banda>> ObtenerBandaAsync() => await ado.ObtenerBandaAsync();
+    public async Task<List<Banda>> ObtenerBandaAsync() => await ado.ObtenerBandaAsync();
 
 
 
@@ -79,7 +79,7 @@ public class Servicio
     }
 
     public List<Album> ObtenerAlbum() => ado.ObtenerAlbum();
-    async Task<List<Album>> ObtenerAlbumAsync() => await ado.ObtenerAlbumAsync();
+    public async Task<List<Album>> ObtenerAlbumAsync() => await ado.ObtenerAlbumAsync();
 
 
 
@@ -120,7 +120,7 @@ public class Servicio
         await ado.AltaCancionAsync(cancion);
     }
     public List<Cancion> ObtenerCancion() => ado.ObtenerCancion();
-    async Task<List<Cancion>> ObtenerCancionAsync() => await ObtenerCancionAsync();
+    public async Task<List<Cancion>> ObtenerCancionAsync() => await ObtenerCancionAsync();
 
 
 
