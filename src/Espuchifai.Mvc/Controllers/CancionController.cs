@@ -22,10 +22,10 @@ namespace Espuchifai.Mvc.Controllers
         [HttpGet]
         public async Task<IActionResult> Detalle(short? id)
         {
-            if(id is null || id == 0)
+            if (id is null || id == 0)
                 return NotFound();
             var cancion = (await _servicio.ObtenerCancionAsync())
-                .FirstOrDefault(a=>a.IdCancion == id);
+                .FirstOrDefault(a => a.IdCancion == id);
             if (cancion is null)
                 return NotFound();
             return View("Detalle", cancion);
@@ -33,10 +33,10 @@ namespace Espuchifai.Mvc.Controllers
         [HttpGet]
         public async Task<IActionResult> Alta(short? id)
         {
-    
-        var cancion = (await _servicio.ObtenerCancionAsync())
-            .FirstOrDefault(a=>a.IdCancion == id);
-        var vMAlbum = new VMAlbum();
+
+            var cancion = (await _servicio.ObtenerCancionAsync())
+                .FirstOrDefault(a => a.IdCancion == id);
+            var vMAlbum = new VMAlbum();
             return View("Alta", cancion);
         }
 

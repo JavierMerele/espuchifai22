@@ -1,13 +1,8 @@
 @using Espuchifai.Core;
-@model IEnumerable<Banda>
+@model Banda;
 @{
     ViewData["Title"] = "Banda - Detalle";
 }
 <h2>Descripcion</h2>
-<p>@Model.Descripcion</p>
-
-<style>
-body {
-background-color: #8ae4c9;
-}
-</div>
+<p>@Model.Nombre</p>
+<P>@Model.Fundacion</p>
