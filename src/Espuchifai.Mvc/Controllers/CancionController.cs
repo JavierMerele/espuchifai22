@@ -30,15 +30,15 @@ namespace Espuchifai.Mvc.Controllers
                 return NotFound();
             return View("Detalle", cancion);
         }
-        [HttpGet]
-        public async Task<IActionResult> Alta(short? id)
-        {
+        // [HttpGet]
+        //public async Task<IActionResult> Alta(short? id)
+        //{
 
-            var cancion = (await _servicio.ObtenerCancionAsync())
-                .FirstOrDefault(a => a.IdCancion == id);
-            var vMAlbum = new VMAlbum();
-            return View("Alta", cancion);
-        }
+        //    var cancion = (await _servicio.ObtenerCancionAsync())
+        //        .FirstOrDefault(a => a.IdCancion == id);
+        //    var vMAlbum = new VMAlbum();
+        //    return View("Alta", cancion);
+        //}
 
         [HttpGet]
         public IActionResult Alta() => View();

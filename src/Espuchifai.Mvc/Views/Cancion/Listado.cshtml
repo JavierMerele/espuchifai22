@@ -3,12 +3,15 @@
 @{
     ViewData["Title"] = "Cancion";
 }
+<h1> Canciones Disponibles </h1><br>
 <ul>
     @foreach (var cancion in Model)
     {
-        <li>@cancion.Nombre</li>
-        <li>@cancion.Orden</li>
-        <li>@cancion.IdAlbum</li>
-        <li>@cancion.IdCancion</li>
-        <li>@cancion.Cantidad</li>
+        <li><a asp-controller="Cancion" asp-action="Listado" asp-route-id="IdCancion">Cancion.Nombre</a></li>
     }
+</ul>
+<style>
+body {
+background-color: #8ae4c9;
+}
+</div>

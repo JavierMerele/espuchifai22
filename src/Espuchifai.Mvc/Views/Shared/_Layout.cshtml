@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="Espuchifai, Musica, entretenimiento, Distraccion, Artistas, Bandas," />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Espuchifai.Mvc</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Espuchifai.Mvc.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/asd.styles.css" asp-append-version="true" />
 </head>
 
 <body>
@@ -22,39 +22,58 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home"
-                                asp-action="Index">Bienvenidos a Espuchifai</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="CancionController"
-                                asp-action="Index">Canciones Disponibles</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarCancionMenu" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Cancion
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarCancionMenu">
-                                <li><a class="dropdown-item" asp-controller="Cancion" asp-action="Index"><i
-                                            class="bi bi-list-nested"></i> Listado</a></li>
-                                <li><a class="dropdown-item" asp-controller="Cancion" asp-action="Alta"><i
-                                            class="bi bi-plus-circle"></i> Alta</a></li>
-                            </ul>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="CantanteController"
-                                asp-action="Index">Cantantes Disponibles</a>
-                        </li>
-                        <li class="nav-item" <a class="nav-link text dark" asp-area="" asp-controller="AlbumController"
-                            asp-action="index">Albumes Disponibles</a>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home"
                                 asp-action="Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarAlbumMenu" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Album
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarAlbumMenu">
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Album" asp-action="Index"><i
+                                            class="bi bi-list-nested"></i> Listado</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Album" asp-action="Detalle"><i
+                                            class="bi bi-plus-circle"></i> Detalle</a>
+                                </li>
+                            </ul>
+                        </li>
+                        @* <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarBandaMenu" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Banda
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarBandaMenu">
+                        <li><a class="dropdown-item" asp-controller="Banda" asp-action="Index"><i
+                        class="bi bi-list-nested"></i> Listado</a></li>
+                        <li><a class="dropdown-item" asp-controller="Banda" asp-action="Alta"><i
+                        class="bi bi-plus-circle"></i> Alta</a></li>
+                        </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarCancionMenu" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Cancion
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarCancionMenu">
+                        <li><a class="dropdown-item" asp-controller="Cancion" asp-action="Index"><i
+                        class="bi bi-list-nested"></i> Listado</a></li>
+                        <li><a class="dropdown-item" asp-controller="Cancion" asp-action="Detalle"><i
+                        class="bi bi-plus-circle"></i> Detalle</a></li>
+                        </ul>
+                        </li> *@
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
