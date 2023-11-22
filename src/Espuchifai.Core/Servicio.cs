@@ -30,13 +30,13 @@ public class Servicio
         }
     }
 
-    async Task AltaBandaAsync(Banda banda)
+    public async Task AltaBandaAsync(Banda banda)
     {
         ValidarBanda(banda);
         await ado.AltaBandaAsync(banda);
     }
     public List<Banda> ObtenerBandas() => ado.ObtenerBandas();
-    
+
     public async Task<List<Banda>> ObtenerBandaAsync() => await ado.ObtenerBandaAsync();
 
 
@@ -69,10 +69,10 @@ public class Servicio
         {
             throw new ArgumentException("Cantidad no valido");
         }
-        
+
     }
 
-    async Task AltaAlbumAsync(Album album)
+    public async Task AltaAlbumAsync(Album album)
     {
         ValidarAlbum(album);
         await ado.AltaAlbumAsync(album);
@@ -145,7 +145,7 @@ public class Servicio
             throw new ArgumentException("IdCancion no valido ");
         }
     }
-    async Task AltaReproducirAsync (Reproducciones reproducciones)
+    async Task AltaReproducirAsync(Reproducciones reproducciones)
     {
         ValidadReproduccion(reproducciones);
         await ado.AltaReproducirAsync(reproducciones);
@@ -154,7 +154,7 @@ public class Servicio
     async Task<List<Reproducciones>> ObtenerReproduccionAsync() => await ado.ObtenerReproduccionAsync();
 
 
-    public void registrarCliente (Usuario usuario)
+    public void registrarCliente(Usuario usuario)
     {
         ValidarUsuario(usuario);
         ado.registrarCliente(usuario);
@@ -184,13 +184,13 @@ public class Servicio
         }
     }
 
-    async Task AltaregistrarClienteAsync (Usuario usuario)
+    async Task AltaregistrarClienteAsync(Usuario usuario)
     {
         ValidarUsuario(usuario);
         await ado.AltaregistrarClienteAsync(usuario);
     }
     List<Usuario> ObtenerUsuarios() => ado.ObtenerUsuarios();
     async Task<List<Usuario>> ObtenerUsuarioAsync() => await ado.ObtenerUsuarioAsync();
-    
+
 
 }

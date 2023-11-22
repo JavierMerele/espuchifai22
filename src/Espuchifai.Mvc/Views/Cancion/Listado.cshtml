@@ -7,11 +7,11 @@
 <ul>
     @foreach (var cancion in Model)
     {
-        <li><a asp-controller="Cancion" asp-action="Listado" asp-route-id="IdCancion">Cancion.Nombre</a></li>
+        <li><a asp-controller="Cancion" asp-action="Listado" asp-route-id="IdCancion">@cancion.Nombre</a></li>
     }
 </ul>
 <style>
-body {
-background-color: #8ae4c9;
-}
-</div>
+    body {
+        background-color: #8ae4c9;
+    }
+</style>

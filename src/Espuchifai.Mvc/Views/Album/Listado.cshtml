@@ -6,10 +6,13 @@
 <ul>
     @foreach (var album in Model)
     {
-        <li>@album.Nombre</li>
-        <li>@album.Lanzamiento</li>
-        <li>@album.IdBanda</li>
-        <li>@album.IdAlbum</li>
-        <li>@album.Cantidad</li>
+        <li><a asp-controller="Banda" asp-action="Listado" asp-route-id="IdBanda">@album.Nombre</a></li>
     }
 </ul>
+<style>
+    body {
+        background-color: #8ae4c9;
+    }
+
+    </div>
+</style>

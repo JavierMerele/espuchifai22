@@ -22,9 +22,9 @@ namespace Espuchifai.AdoMySQL.Mapeadores
         public void AltaBanda(Banda banda)
 
                 => EjecutarComandoCon("altaBanda", ConfigurarAltaBanda, postAltaBanda, banda);
-                
+
         public async Task AltaBandaAsync(Banda banda)
-                => await EjecutarComandoAsync ("AltaBanda",ConfigurarAltaBanda, postAltaBanda , banda);
+                => await EjecutarComandoAsync("AltaBanda", ConfigurarAltaBanda, postAltaBanda, banda);
 
         public void ConfigurarAltaBanda(Banda banda)
         {
