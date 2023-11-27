@@ -31,8 +31,6 @@ public class BandaController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Alta(Banda banda)
     {
-        if (!ModelState.IsValid)
-            return View("Alta", banda);
         if (banda.IdBanda == 0)
             await _servicio.AltaBandaAsync(banda);
 
