@@ -1,5 +1,6 @@
 using Espuchifai.adoET12;
 using Microsoft.AspNetCore.Mvc;
+using Espuchifai.Mvc.ViewModels;
 
 namespace Espuchifai.Mvc.Controllers;
 public class AlbumController : Controller
@@ -24,17 +25,18 @@ public class AlbumController : Controller
             return NotFound();
         return View("Detalle", album);
     }
-    //[HttpGet]
-    //public async Task<IActionResult> Alta(short? id)
-    //{
 
-    //    var album = (await _servicio.ObtenerAlbumAsync())
-    //        .FirstOrDefault(a => a.IdAlbum == id);
-    //    var vMAlbum = new VMAlbum();
-    //   return View("Alta", album);
-    //}
 
     [HttpGet]
-    public IActionResult Alta() => View();
+    public async Task<IActionResult> Alta(short? id)
+    {
+
+        var bandas = await _servicio.ObtenerBandaAsync();
+        var VMAlbum = new VMAlbum(bandas);
+        return View("Alta", VMAlbum);
+    }
+
+    //[HttpGet]
+    //public IActionResult Alta() => View();
 
 }

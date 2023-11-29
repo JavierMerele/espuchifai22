@@ -10,8 +10,8 @@ public class VMAlbum
     public string? Nombre { get; set;}
 
     public DateTime Lanzamiento { get; set; }
-    public uint idAlbum { get; set; }
-    public uint idBanda { get; set; }
+    public uint IdAlbum { get; set; }
+    public uint IdBanda { get; set; }
     public uint Cantidad { get; set;}
 
     public VMAlbum() {}

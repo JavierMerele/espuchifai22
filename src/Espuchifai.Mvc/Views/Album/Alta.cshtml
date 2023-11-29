@@ -1,7 +1,7 @@
-@using Espuchifai.Core;
-@model Album;
+@using Espuchifai.Mvc.ViewModels;
+@model VMAlbum;
 @{
-    ViewData["Title"] = "Alta Banda";
+    ViewData["Title"] = "Alta Album";
 
 }
 <form asp-controller="Album" asp-action="AltaAlbum" method="post">
@@ -17,10 +17,10 @@
     </div>
     <div class="row g-3 align-items-center">
         <div class="col-auto">
-            <label asp-for="Lanzamiento" class="col-form-label">Lanzamiento</label>
+            <label asp-for="Canciones" class="col-form-label">Canciones</label>
         </div>
         <div class="col-auto">
-            <input asp-for="Lanzamiento" class="form-control" />
+            <input asp-for="Canciones" class="form-control" />
         </div>
     </div>
     <div class="row g-3 align-items-center">
